@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maya's Journey</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    #story-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #story-text {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    #story-image {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px 0;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .story-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div id="story-container">
+  <div id="story-text"></div>
+  <img id="story-image" src="./assets/kumon.png" alt="Kumon" />
+  <div class="button-container">
+    <button class="story-button" onclick="previousPart()">Previous</button>
+    <button class="story-button" onclick="continueStory()">Continue</button>
+  </div>
+</div>
+
+<script>
+  const storyParts = [
+    "In the bustling city of Jakarta, where the sun beat down relentlessly on the crowded streets, lived a ten-year-old girl named Maya",
+    "Maya's parents, both firm believers in the power of education, insisted that she attend Kumon to sharpen her mathematical skills. Every Tuesday and Thursday after school, Maya found herself reluctantly trudging towards the small, nondescript Kumon center tucked away in a quiet corner of the city.",
+    "Maya's dislike for math was no secret. She loathed the endless worksheets and the rigid structure of Kumon's program...",
+    "One Thursday, as the clock ticked away in the Kumon center, Maya's frustration reached its peak...",
+    "As weeks went by, Maya's resistance to Kumon grew stronger. She began doodling in the margins of her worksheets, daydreaming about faraway lands where math was replaced by colors and shapes...",
+    "On a rainy Tuesday afternoon, Maya brought a sketchbook and colored pencils to Kumon. As she mechanically worked through the math problems, she surreptitiously sketched the numbers transforming into playful characters, creating a whimsical world within the confines of the worksheet...",
+    "In the following weeks, Maya's Kumon sessions took on a different tone. Mrs. Dewi encouraged Maya to integrate art into her mathematical exercises...",
+    "As the school year drew to a close, Maya not only excelled in her math studies but also nurtured her passion for art. The once rigid routine of Kumon had transformed into a harmonious balance between discipline and creativity. Maya learned that sometimes, finding a creative outlet within structured routines could turn an obligation into an opportunity for personal growth."
+  ];
+
+  const imageSources = [
+    './assets/jtown.jpeg',
+    './assets/kumon.png',
+    './assets/hatekumon.jpeg',
+    './assets/girl.jpeg',
+    './assets/die.jpeg',
+    './assets/sketches.jpeg',
+    './assets/artnmath.png',
+    './assets/kid.jpeg'
+  ];
+
+  let currentPart = 0;
+
+  function continueStory() {
+    if (currentPart < storyParts.length - 1) {
+      currentPart++;
+      updateStory();
+    }
+  }
+
+  function previousPart() {
+    if (currentPart > 0) {
+      currentPart--;
+      updateStory();
+    }
+  }
+
+  function updateStory() {
+    document.getElementById('story-text').innerHTML = `<p>${storyParts[currentPart]}</p>`;
+    document.getElementById('story-image').src = imageSources[currentPart];
+  }
+
+  // Initial story load
+  updateStory();
+</script>
+
+</body>
+</html>
