@@ -25,6 +25,65 @@
       margin-bottom: 30px;
     }
 
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      padding-top: 30px;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .pop {
+      color: #ff69b4;
+      font-style: italic;
+    }
+
+    .alternative {
+      color: #2ecc71; 
+      font-weight: bold;
+    }
+
+    .folk-pop {
+      color: #3498db; 
+      text-decoration: underline;
+    }
+
+    .musical-theater {
+      color: #e74c3c;
+      font-family: 'Georgia', serif;
+    }
+
+    .code {
+      font-family: 'Courier New', monospace;
+      white-space: pre-wrap;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #ff69b4;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff69b4;
+    }
   </style>
 </head>
 
@@ -88,6 +147,111 @@
     <h2>Insert an image (`img`) that brings you joy to the page. Make sure the image includes `alt text` that describes the image.</h2>
     <img src="https://media.giphy.com/media/13toNIRS1IWx2M/giphy.gif" alt="Season 4, Episode 13 of Keeping Up With The Kardashians GIF">
   </div>
-  
+
+  <div class="question">
+    <h2>Insert a video embed into the page.</h2>
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/7Z0fToNvwy4" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="question"> 
+    <h2>Nest the following series of HTML tags inside each other, where each → represents a new level. make sure to maintain proper indentation.
+        `main` → `section` → `div` → `p` → `span`
+        no need to fill these tags with any actual content.</h2>
+  <main>
+    <section>
+      <div>
+        <p>
+          <span></span>
+        </p>
+      </div>
+    </section>
+  </main>
+  </div>
+
+  <div class="question"> 
+    <h2>Create an ordered list of the top 5 countries you’d like to visit. within each country, create another ordered list of the top cities you’d like to visit in that country. maintain proper indentation and make sure you nest your ordered lists properly.</h2>
+            </ol>
+            <li>
+                Peru
+                <ol>
+            <li>Lima</li>
+            <li>Cusco</li>
+            <li>Machu Picchu</li>
+                </ol>
+            </li>
+            <li>
+                South Africa
+                <ol>
+            <li>Cape Town</li>
+            <li>Johannesburg</li>
+            <li>Durban</li>
+                </ol>
+            </li>
+            <li>
+                Iceland
+                <ol>
+            <li>Reykjavik</li>
+            <li>Vatnajokull National Park</li>
+            <li>Golden Circle</li>
+                </ol>
+            </li>
+            <li>
+                Brazil
+                <ol>
+            <li>Rio de Janeiro</li>
+            <li>Sao Paulo</li>
+            <li>Salvador</li>
+                </ol>
+            </li>
+            <li>
+                New Zealand
+                <ol>
+            <li>Auckland</li>
+            <li>Queenstown</li>
+            <li>Wellington</li>
+                </ol>
+            </li>
+            </ol>
+
+
+  <div class="question"> 
+      <h2> Use `pre` tags to create a simple [concrete poetry](https://en.wikipedia.org/wiki/concrete_poetry) version of a haiku or other poem you write. the poem should represent how you feel at this moment.
+        Hint: `pre` tags respect whitespace, you can add add lots of spaces and line breaks and they will show up like that when you view the web page.</h2>        
+        <pre>
+            Silent code whispers,
+            Thoughts flow in lines and spaces,
+            A mind in circuits.
+        </pre>
+  </div>
+
+  <div class="question"> 
+    <h2> Hidden HTML Comment </h2>
+  <!-- hi, I am hidden! -->
+  </div>
+
+  <div class="question"> 
+      <h2>Unordered list of musical artists with genres</h2>
+        <ul>
+            <li class="pop">Gracie Abrams</li>
+            <li class="pop">Sabrina Carpenter</li>
+            <li class="alternative">Lana Del Rey</li>
+            <li class="pop">Lizzy McAlpine</li>
+            <li class="folk-pop">Tiny Habits</li>
+            <li class="musical-theater">Reneé Rapp</li>
+        </ul>
+ </div>
+
+ <script>
+    console.log("Hi, I'm Jaq!");
+
+    function showAlert() {
+      alert("Congratulations! You clicked the button!");
+    }
+  </script>
+
+  <button onclick="showAlert()">Click me!</button>
+
 </body>
 </html>
