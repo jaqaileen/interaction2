@@ -3,42 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.typekit.net/ztd7gxp.css">
+
     <style>
         body {
             margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
+            background-color: #F2F2F0;
         }
 
-        .center-container {
-            text-align: center;
+        .title-container {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+            height: 100vh;
+            overflow: hidden;
+            z-index: -10;
         }
 
         img {
             max-width: 100%;
             height: auto;
             margin-bottom: 20px; 
+            overflow: hidden;
+            position: fixed;
+        }
+
+        .work-container {
+            margin: 0;
+            background-color: #EECCD9;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            height: 100vh;
+            width: 100vw;
+            border-top-right-radius: 35px;
+            border-top-left-radius: 35px;
+            z-index: 9;
+        }
+
+        .projectscontainer {
+            background-color: #F2F2F0;
+            width: 80%;
+            border-radius: 25px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.2%;
+        }
+
+        .project {
+            width: 60%;
+        }
+
+        .class {
+            margin-left: auto;
+            margin-top: 5%;
+        }
+        
+        h1 {
+            font-family: "p22-mackinac-pro", serif;
+            font-size: 3em;
+            font-weight: 200;
+        }
+
+        h3 {
+            font-family: "p22-mackinac-pro", serif;
+            font-size: 2em;
+            text-align: center;
+            font-weight: 200;
+        }
+
+        h2 {
+            font-family: "p22-mackinac-pro", serif;
+        }
+
+        p {
+            font-family: "p22-mackinac-pro", serif;
         }
 
         .bottom-nav {
             display: flex;
             justify-content: space-around;
-            width: 25%;
+            width: 24%;
             position: fixed;
-            bottom: 5%;
+            bottom: 3%;
             background-color: #EECCD9;
-            padding: 10px 0;
+            padding: 5px 0;
             border-radius: 40px;
+            z-index: 10;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .bottom-nav button {
             background-color: #EECCD9;
             color: #2E3C99;
             border: none;
-            padding: 10px 15px;
+            padding: 10px 12px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
@@ -47,23 +112,18 @@
             border-radius: 40px;
             transition: background-color 0.3s;
             margin: 0 5px;
+            z-index: 12;
         }
 
         .bottom-nav button:hover {
             background-color: #E189B0;
+            z-index: 12;
         }
-
-        .workscontainer {
-            max-width: 800px;
-            margin: auto;
-        }
-
     </style>
-    <title>Your Webpage Title</title>
 </head>
 <body>
-    <div class="center-container">
-        <img src="./assets/CORE1.png" alt="TITLE">
+    <div class="title-container">
+        <img src="./assets/home.svg" alt="TITLE">
     </div>
 
     <div class="bottom-nav">
@@ -71,5 +131,39 @@
         <button>Studio</button>
         <button>Lab</button>
     </div>
+
+    <div class="work-container"> 
+    <h3>Works</h3>
+    <div class="projectscontainer">
+        <div class="project">
+            <h1>About Me Short Story</h1>
+            <p>SMALL EXERCISE TO UNDERSTAND LINEAR AND NON-LINEAR STORIES</p>
+        </div>
+        <div class="class">
+            <h2>Studio</h2>
+        </div>
+    </div>
+
+    <div class="projectscontainer">
+        <div class="project">
+            <h1>Questionnaire</h1>
+            <p>INTRODUCTIONS + WARM UP TO HTML, CSS, AND JS</p>
+        </div>
+        <div class="class">
+            <h2>Lab</h2>
+        </div>
+    </div>
+
+    <div class="projectscontainer">
+        <div class="project">
+            <h1>Praise of Shadows Interactive Story</h1>
+            <p>SHORT STORY TYPOGRAPHIC EXPLORATION THROUGH WEBSITE</p>
+        </div>
+        <div class="class">
+            <h2>Studio</h2>
+        </div>
+    </div>
+    </div>
+
 </body>
 </html>
