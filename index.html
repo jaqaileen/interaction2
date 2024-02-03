@@ -54,6 +54,16 @@
             display: flex;
             justify-content: space-between;
             margin-top: 1.2%;
+            transition: all 0.3s ease;
+        }
+
+        .projectscontainer:hover {
+            transform: scale(1.03);
+        }
+
+        .projectscontainer:hover h1 {
+            font-style: italic;
+
         }
 
         .project {
@@ -69,6 +79,7 @@
             font-family: "p22-mackinac-pro", serif;
             font-size: 3em;
             font-weight: 200;
+            color: #2E3C99;
         }
 
         h3 {
@@ -76,20 +87,23 @@
             font-size: 2em;
             text-align: center;
             font-weight: 200;
+            color: #2E3C99;
         }
 
         h2 {
             font-family: "p22-mackinac-pro", serif;
+            color: #2E3C99;
         }
 
         p {
             font-family: "p22-mackinac-pro", serif;
+            color: #2E3C99;
         }
 
         .bottom-nav {
             display: flex;
             justify-content: space-around;
-            width: 24%;
+            width: 330px;
             position: fixed;
             bottom: 3%;
             background-color: #EECCD9;
@@ -101,6 +115,7 @@
 
         .bottom-nav button {
             background-color: #EECCD9;
+            font-family: "p22-mackinac-pro", serif;
             color: #2E3C99;
             border: none;
             padding: 10px 12px;
@@ -115,6 +130,13 @@
             z-index: 12;
         }
 
+        .bottom-nav button.logo {
+            background: url('./assets/logo.png') no-repeat center center;
+            background-size: cover;
+            height: 40px;
+            width: 100%;
+        }
+
         .bottom-nav button:hover {
             background-color: #E189B0;
             z-index: 12;
@@ -127,7 +149,7 @@
     </div>
 
     <div class="bottom-nav">
-        <button>Jaq Aileen</button>
+        <button class="logo"></button>
         <button>Studio</button>
         <button>Lab</button>
     </div>
