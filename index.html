@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.typekit.net/ztd7gxp.css">
-
+    
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
         body {
             margin: 0;
             display: flex;
@@ -17,7 +18,6 @@
         .title-container {
             margin: 0;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center; 
             height: 100vh;
@@ -28,9 +28,9 @@
         img {
             max-width: 100%;
             height: auto;
-            margin-bottom: 20px; 
+            margin: 0; 
             overflow: hidden;
-            position: fixed;
+            transform: translateY(-50%);
         }
 
         .work-container {
@@ -61,13 +61,31 @@
             transform: scale(1.03);
         }
 
-        .projectscontainer:hover h1 {
-            font-style: italic;
-
+        a {
+        text-decoration: none !important;
+        color: inherit !important;
         }
 
+        a:hover {
+        color: inherit !important;
+        }
+
+        .projectscontainer:hover h1 {
+            font-style: italic;
+        }
+
+        .projectscontainer a[href] {
+            text-decoration: none !important;
+            color: inherit !important;
+        }
+
+        .projectscontainer a[href]:hover {
+            color: inherit !important;
+        }
+
+
         .project {
-            width: 60%;
+            width: 80%;
         }
 
         .class {
@@ -76,27 +94,30 @@
         }
         
         h1 {
-            font-family: "p22-mackinac-pro", serif;
-            font-size: 3em;
+            font-family: 'Old Standard TT', serif;
+            font-size: 3.4em;
             font-weight: 200;
             color: #2E3C99;
+            margin: 0;
         }
 
         h3 {
             font-family: "p22-mackinac-pro", serif;
-            font-size: 2em;
+            font-size: 2.2em;
             text-align: center;
             font-weight: 200;
             color: #2E3C99;
+            margin: 25;
         }
 
         h2 {
             font-family: "p22-mackinac-pro", serif;
-            color: #2E3C99;
+            font-weight: 200;
+            color: #E189B0;
         }
 
         p {
-            font-family: "p22-mackinac-pro", serif;
+            font-family: "pt-mono", monospace;
             color: #2E3C99;
         }
 
@@ -115,14 +136,14 @@
 
         .bottom-nav button {
             background-color: #EECCD9;
-            font-family: "p22-mackinac-pro", serif;
+            font-family: 'Old Standard TT', serif;
             color: #2E3C99;
             border: none;
             padding: 10px 12px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             cursor: pointer;
             border-radius: 40px;
             transition: background-color 0.3s;
@@ -141,6 +162,7 @@
             background-color: #E189B0;
             z-index: 12;
         }
+
     </style>
 </head>
 <body>
@@ -156,7 +178,8 @@
 
     <div class="work-container"> 
     <h3>Works</h3>
-    <div class="projectscontainer">
+
+    <a href="./short story/index.html" class="projectscontainer">
         <div class="project">
             <h1>About Me Short Story</h1>
             <p>SMALL EXERCISE TO UNDERSTAND LINEAR AND NON-LINEAR STORIES</p>
@@ -164,9 +187,9 @@
         <div class="class">
             <h2>Studio</h2>
         </div>
-    </div>
+    </a>
 
-    <div class="projectscontainer">
+    <a href="./questionnaire/index.html" class="projectscontainer">
         <div class="project">
             <h1>Questionnaire</h1>
             <p>INTRODUCTIONS + WARM UP TO HTML, CSS, AND JS</p>
@@ -174,9 +197,9 @@
         <div class="class">
             <h2>Lab</h2>
         </div>
-    </div>
+    </a>
 
-    <div class="projectscontainer">
+    <a href="#praise-of-shadows" class="projectscontainer">
         <div class="project">
             <h1>Praise of Shadows Interactive Story</h1>
             <p>SHORT STORY TYPOGRAPHIC EXPLORATION THROUGH WEBSITE</p>
@@ -184,8 +207,15 @@
         <div class="class">
             <h2>Studio</h2>
         </div>
-    </div>
+    </a>
     </div>
 
+    <script>
+        window.addEventListener('scroll', function() {
+            var scrollPosition = window.scrollY;
+            var img = document.querySelector('img');
+            img.style.transform = 'translateY(' + scrollPosition * 0.8 + 'px)';
+        });
+    </script>
 </body>
 </html>
