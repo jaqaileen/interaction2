@@ -26,12 +26,25 @@
             z-index: -10;
         }
 
+        .title-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
         img {
             max-width: 100%;
             height: auto;
-            margin: 0; 
             overflow: hidden;
             transform: translateY(-50%);
+        }
+
+        .arrow {
+            position: relative;
+            left: 50%; 
+            transform: translateX(-50%);
+            overflow: hidden;
         }
 
         .work-container {
@@ -147,36 +160,44 @@
             font-size: 1.4rem;
             cursor: pointer;
             border-radius: 40px;
-            transition: background-color 0.3s;
             margin: 0 5px;
+            transition: background-color 0.3s;
             z-index: 12;
         }
 
         .bottom-nav button.logo {
             background: url('./assets/logo.png') no-repeat center center;
-            background-size: contain;
+            background-size: cover;
             width: 135px;
         }
-
-
 
         .bottom-nav button:hover {
             background-color: #E189B0;
             z-index: 12;
         }
 
+
     </style>
 </head>
 <body>
     <div class="title-container">
-        <img src="./assets/home.svg" alt="TITLE">
+        <div class="title-content">
+            <img src="./assets/home.svg" alt="TITLE">
+            <svg id="arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="65" viewBox="0 0 64 171" fill="none" class="">
+                <path d="M32 2V169C32 151.495 38.5 119.635 62 113.333" stroke="#2E3A99" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M32 2V169C32 151.495 25.5 119.635 2 113.333" stroke="#2E3A99" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
     </div>
 
     <div class="bottom-nav">
-        <button class="logo"></button>
+        <a href="http://jaqaileen.com/">
+            <button class="logo"></button>
+        </a>
         <button>Studio</button>
         <button>Lab</button>
     </div>
+    
 
     <div class="work-container"> 
     <h3>Works</h3>
@@ -214,10 +235,17 @@
 
     <script>
         window.addEventListener('scroll', function() {
-            var scrollPosition = window.scrollY;
-            var img = document.querySelector('img');
-            img.style.transform = 'translateY(' + scrollPosition * 0.8 + 'px)';
-        });
+        var scrollPosition = window.scrollY;
+        var img = document.querySelector('img');
+        img.style.transform = 'translateY(' + scrollPosition * 0.8 + 'px)';
+    });
+
+        window.addEventListener('scroll', function () {
+        var scrollPosition = window.scrollY;
+        var arrow = document.querySelector('.arrow'); // Correct the selector to use class selector '.arrow'
+        arrow.style.transform = 'translateY(' + scrollPosition * 0.8 + 'px)';
+    });
     </script>
+
 </body>
 </html>

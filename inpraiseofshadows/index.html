@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* CSS styles go here */
+        .door-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+        .door {
+            width: 200px;
+            height: 300px;
+            position: relative;
+        }
+        .left,
+        .right {
+            width: 50%;
+            height: 100%;
+            background: brown;
+            position: absolute;
+        }
+        .left {
+            left: 0;
+        }
+        .right {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <section class="door-wrapper">
+        <div class="door">
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
+    </section>
+    <section class="section-2"></section>
+    <section class="section-3"></section>
+</body>
+</html>
