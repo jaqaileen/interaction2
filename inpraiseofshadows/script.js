@@ -11,17 +11,29 @@ jQuery(document).ready(function() {
         }
     });
 
+    // Corrected initial animation state
+    tl.set(".left", { rotationY: 0 });
+    tl.set(".right", { rotationY: 0 });
+
+    // Animation
     tl.to(".left", {
-        rotationY: "-116px",
+        rotationY: "-116px", 
         transformOrigin: "left",
-        ease: "circ.in",
+        ease: "circ.inOut", // Corrected easing function
+        yoyo: true,
+    }, 0);
+    
+    tl.to(".right", {
+        rotationY: "116px", 
+        transformOrigin: "right",
+        ease: "circ.inOut", // Corrected easing function
         yoyo: true,
     }, 0);
 
-    tl.to(".right", {
-        rotationY: "116px",
-        transformOrigin: "right",
-        ease: "circ.in",
-        yoyo: true,
-    }, 0);
+    // Animation for showing the text
+    tl.to(".text-container", {
+        top: "-100vh",
+        duration: 1,
+        ease: "power2.out",
+    });
 });

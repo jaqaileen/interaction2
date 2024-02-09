@@ -3,32 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        /* CSS styles go here */
-        .door-wrapper {
-            display: flex;
-            justify-content: center;
-        }
-        .door {
-            width: 200px;
-            height: 300px;
-            position: relative;
-        }
-        .left,
-        .right {
-            width: 50%;
-            height: 100%;
-            background: brown;
-            position: absolute;
-        }
-        .left {
-            left: 0;
-        }
-        .right {
-            right: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <section class="door-wrapper">
@@ -37,7 +12,13 @@
             <div class="right"></div>
         </div>
     </section>
-    <section class="section-2"></section>
-    <section class="section-3"></section>
+    <section class="text-container">
+        <div class="text">In Praise of Shadows</div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
