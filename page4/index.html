@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generative UI Tutorial</title>
+  <link href="https://fonts.googleapis.com/css2?family=Buljirya&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Prevent scrollbars due to canvas size */
+      background-color: #f0f0f0;
+    }
+  
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Canvas -->
+  <canvas id="orb-canvas"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/pixi.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simplex-noise@3.0.0"></script>
+  <script>
+    // Create a new instance of PIXI.Application
+    const app = new PIXI.Application({
+      width: window.innerWidth,
+      height: window.innerHeight,
+      antialias: true, // smooth edges
+      transparent: true, // transparent background
+      resolution: window.devicePixelRatio || 1, // for retina displays
+    });
+
+    // Add the PIXI.Application's view (canvas element) to the document body
+    document.body.appendChild(app.view);
+
+    // Create SimplexNoise instance
+    const simplex = new SimplexNoise();
+
+    // Orb class definition
+    class Orb {
+      constructor(fill = 0x000000) {
+        // Bounds for orb movement
+        this.bounds = {
+          x: { min: 0, max: app.screen.width },
+          y: { min: 0, max: app.screen.height },
+        };
+
+        // Random initial position within bounds
+        this.x = Math.random() * (this.bounds.x.max - this.bounds.x.min) + this.bounds.x.min;
+        this.y = Math.random() * (this.bounds.y.max - this.bounds.y.min) + this.bounds.y.min;
+
+        // Radius and scale
+        this.radius = Math.random() * 30 + 10;
+        this.scale = 1;
+
+        // Fill color
+        this.fill = fill;
+
+        // Noise parameters
+        this.xOff = Math.random() * 1000;
+        this.yOff = Math.random() * 1000;
+        this.inc = 0.002;
+
+        // Create the PIXI.Graphics object for drawing
+        this.graphics = new PIXI.Graphics();
+        this.graphics.alpha = 0.825;
+
+        // Add the orb's graphics to the PIXI.Application's stage
+        app.stage.addChild(this.graphics);
+      }
+
+      // Update method to update orb position and appearance
+      update() {
+        const xNoise = simplex.noise2D(this.xOff, this.xOff);
+        const yNoise = simplex.noise2D(this.yOff, this.yOff);
+        const scaleNoise = simplex.noise2D(this.xOff, this.yOff);
+
+        this.x = this.map(xNoise, -1, 1, this.bounds.x.min, this.bounds.x.max);
+        this.y = this.map(yNoise, -1, 1, this.bounds.y.min, this.bounds.y.max);
+        this.scale = this.map(scaleNoise, -1, 1, 0.5, 1);
+
+        this.xOff += this.inc;
+        this.yOff += this.inc;
+      }
+
+      // Render method to draw the orb
+      render() {
+        this.graphics.clear();
+        this.graphics.beginFill(this.fill);
+        this.graphics.drawCircle(this.x, this.y, this.radius * this.scale);
+        this.graphics.endFill();
+      }
+
+      // Utility method to map a value from one range to another
+      map(value, start1, end1, start2, end2) {
+        return ((value - start1) / (end1 - start1)) * (end2 - start2) + start2;
+      }
+    }
+
+    // Create an array to store orbs
+    const orbs = [];
+
+    // Create a specified number of orbs
+    const numOrbs = 50;
+    for (let i = 0; i < numOrbs; i++) {
+      const orb = new Orb(PIXI.utils.rgb2hex([Math.random(), Math.random(), Math.random()]));
+      orbs.push(orb);
+    }
+
+    // Render loop
+    app.ticker.add(() => {
+      // Update and render each orb
+      orbs.forEach(orb => {
+        orb.update();
+        orb.render();
+      });
+    });
+  </script>
+</body>
+</html>

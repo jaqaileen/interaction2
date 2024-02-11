@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hidden</title>
+<style>
+      @import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap');
+
+    body {
+        background-color: #151515; 
+        padding: 20px;
+        display: flex;
+        margin: 5%;
+        margin-left: 18%;
+        margin-right: 18%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    p {
+        font-family: 'Cardo', serif; 
+        color: #151515; 
+        line-height: 1.4;
+        font-size: 1.5rem;
+        padding-top: 50%;
+        z-index: 100;
+    }
+
+    .spotlight {
+        position: fixed;
+        width: 270px; 
+        height: 270px; 
+        z-index: -100;
+        pointer-events: none;
+    }
+
+    .overlay {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+    }
+
+    .hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        background-image: url('https://i.picsum.photos/id/100/2500/1656.jpg?hmac=gWyN-7ZB32rkAjMhKXQgdHOIBRHyTSgzuOK6U0vXb1w');
+        background-position: center;
+        position: relative; 
+        z-index: 0;
+    }
+
+    .hero:after {
+        content: "";
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png");
+        height: 300%;
+        width: 300%;
+        position: fixed;
+        opacity: 0.1;
+        animation: animateGrain 8s steps(10) infinite;
+        top: 0;
+        left: 0;
+    }
+
+    @keyframes animateGrain {
+        0%, 100% {
+        transform: translate(0, 0);
+        }
+        10% {
+        transform: translate(-5%, -10%);
+        }
+        20% {
+        transform: translate(-15%, -20%);
+        }
+        30% {
+        transform: translate(-5%, -10%);
+        }
+        40% {
+        transform: translate(-15%, -20%);
+        }
+        50% {
+        transform: translate(-5%, -10%);
+        }
+        60% {
+        transform: translate(-15%, -20%);
+        }
+        70% {
+        transform: translate(-5%, -10%);
+        }
+        80% {
+        transform: translate(-15%, -20%);
+        }
+        90% {
+        transform: translate(-5%, -10%);
+        }
+        100% {
+        transform: translate(-15%, -20%);
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="hero">
+        <div>
+            <p>And so it has come to be that the beauty of a Japanese room depends on a variation of shadows, heavy shadows against light shadows-it has nothing else. Westerners are amazed at the simplicity of Japanese rooms, perceiving in them no more than ashen walls bereft of ornament. Their reaction is understandable, but it betrays a failure to comprehend the mystery of shadows. Out beyond the sitting room, which the rays of the sun can at best but barely reach, we extend the eaves or build on a veranda, putting the sunlight at still greater a remove. The light from the garden steals in but dimly through paper-paneled doors, and it is precisely this indirect light that makes for us the charm of a room. We do our walls in neutral colors so that the sad, fragile, dying rays can sink into absolute repose. The storehouse, kitchen, hallways, and such may have a glossy finish, but the walls of the sitting room will almost always be of day textured with fine sand. A luster here would destroy the soft fragile beauty of the feeble light. We delight in the mere sight of the delicate glow of fading rays clinging to the surface of a dusky wall, there to live out what little life remains to them. We never tire of the sight, for to us this pale glow and these dim shadows far surpass any ornament. And so, as we must if we are not to disturb the glow, we finish the walls with sand in a single neutral color. The hue may differ from room to room, but the degree of difference will be ever so slight; not so much a difference in color as in shade, a difference that will seem to exist only in the mood of the viewer. And from these delicate differences in the hue of the walls, the shadows in each room take on a tinge peculiarly their own.
+                <br>
+                Of course the Japanese room does have its picture alcove, and in it a hanging scroll and a flower arrangement. But the scroll and the flowers serve not as ornament but rather to give depth to the shadows. We value a scroll above all for the way it blends with the walls of the alcove, and thus we consider the mounting quite as important as the calligraphy or painting. Even the greatest masterpiece will lose its worth as a scroll if it fails to blend with the alcove, while a work of no particular distinction may blend beautifully with the room and set off to unexpected advantage both itself and its surroundings. Wherein lies the power of an otherwise ordinary work to produce such an effect? Most often the paper, the ink, the fabric of the mounting will possess a certain look of antiquity, and this look of antiquity will strike just the right balance with the darkness of the alcove and room.
+                <br>    
+                We have all had the experience, on a visit to one of the great temples of Kyoto or Nara, of being shown a scroll, one of the temple's treasures, hanging in a large, deeply recessed alcove. So dark are these alcoves, even in bright daylight, that we can hardly discern the outlines of the work; all we can do is listen to the explanation of the guide, follow as best we can the all-but invisible brush strokes, and tell ourselves how magnificent a painting it must be. Yet the combination of that blurred old painting and the dark alcove is one of absolute harmony. The lack of clarity, far from disturbing us, seems rather to suit the painting perfectly.
+            </p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const spotlight = document.createElement('img');
+            spotlight.src = '../assets/spotlight.svg';
+            spotlight.classList.add('spotlight');
+            document.body.appendChild(spotlight);
+    
+            function updateSpotlightPosition(e) {
+                const scrollX = window.scrollX || window.pageXOffset;
+                const scrollY = window.scrollY || window.pageYOffset;
+                const x = e.clientX + scrollX;
+                const y = e.clientY + scrollY;
+                spotlight.style.left = x - spotlight.width / 2 + 'px';
+                spotlight.style.top = y - spotlight.height / 2 + 'px';
+            }
+    
+            document.addEventListener('mousemove', updateSpotlightPosition);
+            window.addEventListener('scroll', updateSpotlightPosition);
+        });
+    </script>
+    
+    
+</body>
+</html>
