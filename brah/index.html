@@ -10,7 +10,7 @@
     <section class="door-wrapper">
         <div class="door">
             <div class="right"></div>
-            <a href="../page1a/index.html">
+            <a href="../page1/index.html" id="svg-link">
                 <div class="svg-container" id="circle-svg">
                     <svg id="inside-svg" viewBox="0 0 24 24" width="24" height="24">
                         <circle cx="12" cy="12" r="10" fill="#232323"/>
@@ -20,7 +20,6 @@
                     </div>
                 </div>
             </a>
-        
         </div>
         <div class="title-container">
             <div class="title">In Praise of Shadows</div>
@@ -44,7 +43,8 @@
             }
         });
 
-        tl.set(".right", { rotationY: 0 });
+        tl.set(".door", { scale: 1 }); 
+
         tl.to(".right", {
             rotationY: 116,
             transformOrigin: "right",
@@ -62,21 +62,38 @@
             duration: 0.01,
         }, 0);
 
+       
         jQuery(".door-wrapper a").on("click", function(e) {
             e.preventDefault(); 
             let href = jQuery(this).attr("href"); 
+
+          
+            let scaleTl = gsap.timeline(); 
+            scaleTl.to(".door-wrapper", {
+                scale: 7.6,
+                duration: 6,
+                ease: "power2.out" 
+            });
+            scaleTl.to("#circle-svg", {
+                opacity: 0,
+                duration: 2, 
+                ease: "power2.out"
+            }, 0);
+
             setTimeout(function() {
                 window.location.href = href; 
-            }, 3000);
-
-            tl.to(".door", {
-                scale: 3, 
-                duration: 3, 
-                ease: "power2.out"
-            });
+            }, 6000); 
         });
+
+        document.getElementById('svg-link').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default link behavior
+        document.body.classList.add('fade-in'); // Add the fade-in class to the body
+    });
     });
 </script>
+
+
+
 
 </body>
 </html>

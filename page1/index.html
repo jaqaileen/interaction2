@@ -8,11 +8,29 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-  body {
-    padding-right: 20px;
-    background-color: #F1EEE5;
-    font-family: 'Buljirya', sans-serif;
-  }
+    body {
+        margin: 0;
+        background-color: #F1EEE5;
+        font-family: 'Buljirya', sans-serif;
+        animation: fade-in 3s ease-in-out;
+    }
+
+    .container {
+        padding: 2%;
+        margin: 2%;
+        box-sizing: border-box; /* Ensure padding is included in the width calculation */
+    }
+
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+    }
+
   .title {
     position: absolute;
     left: 70%;
@@ -54,9 +72,79 @@
     color: #232323;
   }
 
+
+  .temple-svg {
+    animation: growTemple 4s infinite; 
+    transform-origin: bottom;
+  }
+
+  @keyframes growTemple {
+    0% {
+      transform: scaleY(0.8); 
+    }
+    50% {
+      transform: scaleY(1);
+    }
+    100% {
+      transform: scaleY(0.8); 
+    }
+  }
+
+        #circle-svg {
+            position: fixed;
+            overflow: hidden;
+            transition: all 0.3s;
+            border-radius: 100px;
+            border: 2px solid #232323;
+            width: 34px;
+            height: 34px;
+            z-index: 100; 
+        }
+        #circle-svg:hover {
+            width: 150px;
+            height: 34px; 
+            border-radius: 100px;
+            border: 2px solid #232323;
+        }
+
+        .text {
+            position: absolute;
+            top: 59%; 
+            left: 40px; 
+            transform: translateY(-50%);
+            color: #232323;
+            font-family: 'Buljirya', sans-serif;
+            font-size: small;
+            opacity: 0;
+            pointer-events: none; 
+            white-space: nowrap;
+            z-index: 102; 
+        }
+
+        #circle-svg:hover .text {
+            opacity: 1; 
+        }
+
+        .svg-container {
+            position: absolutw;
+            left: calc(97% - 3%);
+            bottom: 15%;
+            transform: translate(-50%, -50%);
+            z-index: 1000; 
+        }
+
+        #inside-svg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            fill: #232323;
+            width: 24px;
+            height: 24px;
+        }
+
 </style>
 </head>
-<body>
+<body class="fade-in">
     <div class="blur">
         <img src="../assets/templeblur.svg" alt="Temple" width="550" height="800">
       </div>
@@ -79,7 +167,7 @@
         <br> special beauty.
       </p>
 
-      <img src="../assets/temple1.svg" alt="Temple" style="position: absolute; left: 89.5%; top: 53.5%;" width="350" height="350">
+      <img src="../assets/temple1.svg" alt="Temple" class="temple-svg" style="position: absolute; left: 88.5%; top: 51.5%;" width="380" height="380">
 
       <p style="position: absolute; left: 106.5%; top: 39%;">
         In the temples of Japan, on the other 
@@ -111,7 +199,7 @@
         <br> that stands beneath the eaves.</h2>
 
     
-     <img src="../assets/temple2.svg" alt="Temple" style="position: absolute; left: 183%; top: 3%;" width="700" height="700">
+     <img src="../assets/temple2.svg" alt="Temple" class="temple-svg" style="position: absolute; left: 183%; top: 3%;" width="700" height="700">
 
      <p style="position: absolute; left: 226%; top: 4%;">
         In making for ourselves a place to 
@@ -141,5 +229,54 @@
         <br> Japanese eaves. 
      </p>   
 
+     <img src="../assets/temple3.svg" alt="Temple" class="temple-svg" style="position: absolute; left: 294%; bottom: 44%" width="680" height="680">
+
+
+     <p style="position: absolute; left: 295%; top: 40%;">
+        The fact that we did not use glass, concrete, and bricks,
+        <br> for instance, made a low roof necessary to keep off the
+        <br> driving wind and rain. A light room would no doubt have
+        <br> been more convenient for us, too, than a dark room. 
+     </p>   
+
+     <h2 class="header" style="position: absolute; left: 315%; top: 67%;">
+        The quality that we call beauty, however, 
+        <br> must always grow from the realities of life,
+        <br> and our ancestors, </h2>
+
+    <p style="position: absolute; left: 314%; top: 72%;">
+        forced to live in dark rooms, 
+        <br> presently came to discover beauty 
+        <br> in shadows, ultimately to guide
+        <br> shadows towards beauty's ends. 
+     </p> 
+
+     <a href="../page2/index.html" id="svg-link">
+        <div class="svg-container" id="circle-svg">
+            <svg id="inside-svg" viewBox="0 0 24 24" width="24" height="24">
+                <circle cx="12" cy="12" r="10" fill="#232323"/>
+            </svg>
+            <div class="text">
+                <p>enter here</p>
+            </div>
+        </div>
+    </a>
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+  let blurDiv = document.querySelector(".blur");
+
+  blurDiv.addEventListener("mouseenter", function() {
+    let paths = document.querySelectorAll(".blur img");
+    paths.forEach(path => {
+      waveSVG(path, {taperStart:0, loose:true, invertFlow:Math.random()>.5, length:50, angle:Math.random()*360, magnitude:Math.random()+1, phase:0, duration:2, start:0, repeat:-1}); 
+    });
+  });
+
+  blurDiv.addEventListener("mouseleave", function() {
+    // If you want to stop the animation on mouseleave, you can add code here
+  });
+});
+</script>
 </html>
