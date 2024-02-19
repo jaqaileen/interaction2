@@ -3,40 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hidden</title>
+<title>Beauty in Shadows & Darkness</title>
 <style>
       @import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap');
 
-    body {
+      body {
         background-color: #232323; 
-        padding: 20px;
-        display: flex;
-        margin: 5%;
-        margin-left: 18%;
-        margin-right: 18%;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         position: relative;
+        
     }
 
-    .title {
-        font-family: 'Buljirya', sans-serif;
+  .title {
         position: absolute;
-        transform: translate(-50%, -50%);
+        font-family: 'buljirya', sans-serif;
+        font-size: 2.8rem;
         line-height: 2;
-        font-size: 3rem;
+        margin-left: 18%;
+        margin-right: 18%;
+        padding-top: 3%;
         text-align: left;
         color: #232323;
-        white-space: nowrap;
-  }
+    }
 
     p {
         font-family: 'Cardo', serif; 
+        margin-left: 18%;
+        margin-right: 18%;
         color: #232323; 
         line-height: 1.4;
+        padding-top: 25%;
+        padding-bottom: 3%;
         font-size: 1.5rem;
-        padding-top: 70%;
         z-index: 100;
     }
 
@@ -47,7 +47,7 @@
         z-index: -100;
         pointer-events: none;
     }
-/* 
+
     .overlay {
         position: absolute;
         width: 100vw;
@@ -56,23 +56,20 @@
     }
 
     .hero {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
+        position: relative; /* Change from absolute to relative */
+        width: 100vw;
         height: 100vh;
         background-image: url('https://i.picsum.photos/id/100/2500/1656.jpg?hmac=gWyN-7ZB32rkAjMhKXQgdHOIBRHyTSgzuOK6U0vXb1w');
         background-position: center;
-        position: relative; 
         z-index: 0;
     }
 
     .hero:after {
         content: "";
         background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png");
-        height: 300%;
-        width: 300%;
-        position: fixed;
+        height: 200vh; 
+        width: 200vw;
+        position: fixed; 
         opacity: 0.1;
         animation: animateGrain 8s steps(10) infinite;
         top: 0;
@@ -114,7 +111,6 @@
         transform: translate(-15%, -20%);
         }
     }
-</style> */
 </style>
 </head>
 <body>

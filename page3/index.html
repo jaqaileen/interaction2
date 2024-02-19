@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ambition & Confusion</title>
+  <title>Ambiguity & Confusion</title>
   <style>
 
     @import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap');
@@ -15,7 +15,7 @@
     }
     .title {
         position: fixed;
-        font-family: buljirya;
+        font-family: 'buljirya', sans-serif;
         font-size: 2.8rem;
         line-height: 2;
         text-align: left;
@@ -54,29 +54,6 @@
         text-align: left;
         filter: blur(0px); 
     }
-
-    .wavy {
-        animation-name: wavy;
-        animation-duration: 1.3s;
-        animation-timing-function: ease;
-        animation-iteration-count: infinite;
-        position: relative;
-        top: 0;
-        left: 0;
-    }
-
-    @keyframes wavy {
-    0% {
-        top: 0px;
-    }
-    50% {
-        top: -15px;
-    }
-    100% {
-        top: 0px;
-    }
-    }
-
   </style>
 </head>
 <body>
@@ -134,12 +111,3 @@
 
 
 <script>
-  // Get the animated text element
-  let animatedText = document.getElementById("animated");
-
-  // Wrap each letter of the text in a span with the wavy class
-  animatedText.innerHTML = animatedText.textContent.replace(/\S/g, "<span class='wavy'>$&</span>");
-</script>
-
-</body>
-</html>
