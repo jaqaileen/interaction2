@@ -7,7 +7,7 @@
 <style>
       @import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap');
 
-      body {
+    body {
         background-color: #232323; 
         flex-direction: column;
         justify-content: center;
@@ -16,7 +16,7 @@
         
     }
 
-  .title {
+    .title {
         position: absolute;
         font-family: 'buljirya', sans-serif;
         font-size: 2.8rem;
@@ -111,6 +111,69 @@
         transform: translate(-15%, -20%);
         }
     }
+
+    .grid-container {
+        position: fixed;
+        top: 33%;
+        right: 0;
+        height: 100vh;
+        width: 8vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    #circle-svg {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s;
+        border-radius: 100px;
+        border: 2px solid #232323;
+        width: 34px;
+        height: 34px;
+        z-index: 100;
+        margin-top: 14rem;
+    }
+
+    #circle-svg:hover {
+        width: 44px;
+        height: 44px;
+        border-radius: 100px;
+        border: 2px solid #232323;
+    }
+
+    .svg-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    #inside-svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        fill: #232323;
+        width: 34px;
+        height: 34px;
+    }
+
+    .home {
+        position: absolute; 
+        bottom: 95%;
+        left: 53%;
+        transform: translate(-50%, 50%);
+        width: 34px;
+        height: 34px;
+        transition: all 0.3s;
+        display: inline-block;
+    }
+
+    .home:hover {
+        transform: translate(-50%, 50%) scale(1.2); 
+    }
+
 </style>
 </head>
 <body>
@@ -122,6 +185,23 @@
             <br> Darkness
             </div>
         <div>
+    
+            <div class="grid-container">
+                <a href="../brah/index.html" id="home">
+                    <div class="home">
+                        <img src="../assets/home.svg" alt="Home">
+                    </div>
+                </a>
+        
+                <a href="../page3/index.html" id="svg-link">
+                    <div class="svg-container" id="circle-svg">
+                        <svg id="inside-svg" viewBox="0 0 24 24" width="24" height="24">
+                            <circle cx="12" cy="12" r="10" fill="#232323"/>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+
             <p>And so it has come to be that the beauty of a Japanese room depends on a variation of shadows, heavy shadows against light shadows-it has nothing else. Westerners are amazed at the simplicity of Japanese rooms, perceiving in them no more than ashen walls bereft of ornament. Their reaction is understandable, but it betrays a failure to comprehend the mystery of shadows. Out beyond the sitting room, which the rays of the sun can at best but barely reach, we extend the eaves or build on a veranda, putting the sunlight at still greater a remove. The light from the garden steals in but dimly through paper-paneled doors, and it is precisely this indirect light that makes for us the charm of a room. We do our walls in neutral colors so that the sad, fragile, dying rays can sink into absolute repose. The storehouse, kitchen, hallways, and such may have a glossy finish, but the walls of the sitting room will almost always be of day textured with fine sand. A luster here would destroy the soft fragile beauty of the feeble light. We delight in the mere sight of the delicate glow of fading rays clinging to the surface of a dusky wall, there to live out what little life remains to them. We never tire of the sight, for to us this pale glow and these dim shadows far surpass any ornament. And so, as we must if we are not to disturb the glow, we finish the walls with sand in a single neutral color. The hue may differ from room to room, but the degree of difference will be ever so slight; not so much a difference in color as in shade, a difference that will seem to exist only in the mood of the viewer. And from these delicate differences in the hue of the walls, the shadows in each room take on a tinge peculiarly their own.
                 <br>
                 Of course the Japanese room does have its picture alcove, and in it a hanging scroll and a flower arrangement. But the scroll and the flowers serve not as ornament but rather to give depth to the shadows. We value a scroll above all for the way it blends with the walls of the alcove, and thus we consider the mounting quite as important as the calligraphy or painting. Even the greatest masterpiece will lose its worth as a scroll if it fails to blend with the alcove, while a work of no particular distinction may blend beautifully with the room and set off to unexpected advantage both itself and its surroundings. Wherein lies the power of an otherwise ordinary work to produce such an effect? Most often the paper, the ink, the fabric of the mounting will possess a certain look of antiquity, and this look of antiquity will strike just the right balance with the darkness of the alcove and room.

@@ -13,6 +13,21 @@
     }
 </style>
 <body>
+    <div class="grid-container">
+        <a href="../brah/index.html" id="home">
+            <div class="home">
+                <img src="../assets/home.svg" alt="Home">
+            </div>
+        </a>
+
+        <a href="../page5/index.html" id="svg-link">
+            <div class="svg-container" id="circle-svg">
+                <svg id="inside-svg" viewBox="0 0 24 24" width="24" height="24">
+                    <circle cx="12" cy="12" r="10" fill="#232323"/>
+                </svg>
+            </div>
+        </a>
+    </div>
   <!-- Canvas -->
   <canvas id="canvas"></canvas>
   <!-- Overlay -->
@@ -23,7 +38,6 @@
       <h1 class="overlay__title">
         Symbolism <br> of <strong> Gold </strong> <br> & Illumination
       </h1>
-      <!-- Description -->
       <p class="p">
           We have all had the experience, on a visit to one of the great temples of Kyoto or Nara, of being shown a scroll, one of the temple's treasures, hanging in a large, deeply recessed alcove. So dark are these alcoves, even in bright daylight, that we can hardly discern the outlines of the work; all we can do is listen to the explanation of the guide, follow as best we can the all-but invisible brush strokes, and tell ourselves how magnificent a painting it must be. Yet the combination of that blurred old painting and the dark alcove is one of absolute harmony. The lack of clarity, far from disturbing us, seems rather to suit the painting perfectly.
           <br>
@@ -40,7 +54,6 @@
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    // Orb class
     class Orb {
         constructor(x, y, radius, color, speedX, speedY) {
             this.x = x;
@@ -79,24 +92,23 @@
 
     const orbs = [];
 
-    // Create orbs
     for (let i = 0; i < 10; i++) {
         let radius, color;
         if (i < 3) {
-            radius = Math.random() * 100 + 120; // Large orbs
+            radius = Math.random() * 100 + 120; 
             color = '#CF9A33';
         } else if (i < 7) {
-            radius = Math.random() * 70 + 90; // Medium orbs
+            radius = Math.random() * 70 + 90; 
             color = '#F6D734';
         } else {
-            radius = Math.random() * 60 + 90; // Small orbs
+            radius = Math.random() * 60 + 90; 
             color = '#F6B434';
         }
 
         const x = Math.random() * (canvas.width - radius * 2) + radius;
         const y = Math.random() * (canvas.height - radius * 2) + radius;
-        const speedX = (Math.random() - 2) * 2; // Random speed between -2 and 2 for x-axis
-        const speedY = (Math.random() - 2) * 2; // Random speed between -2 and 2 for y-axis
+        const speedX = (Math.random() - 2) * 2; 
+        const speedY = (Math.random() - 2) * 2; 
 
         orbs.push(new Orb(x, y, radius, color, speedX, speedY));
     }
