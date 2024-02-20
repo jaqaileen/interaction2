@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ambiguity & Confusion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=swap" rel="stylesheet">
   <style>
-
-    @import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap');
 
     body {
         margin: 0;
@@ -41,14 +40,19 @@
         border-radius: 10px;
         padding: 2%; 
         width: fit-content;
-        filter: blur(5px); 
+        filter: blur(5px);
+        transition: filter 0.3s ease; /* Add transition */
+    }
+
+    .overlay:hover {
+        filter: blur(0px); /* Remove blur on hover */
     }
     
     .header {
         font-family: 'Cardo', serif;
         font-style: italic;
         line-height: 1.5;
-        font-weight: 100;;
+        font-weight: 700;;
         font-size: 2rem;
         color: #F1EEE5; 
         text-align: left;
@@ -80,7 +84,22 @@
     </h2>
     </div>
 
-    <div class="overlay" style="left: 12%; top: 55%;">
+    <div class="overlay" style="left: 9%; top: 55%">
+    <h2 class="header" style="width: fit-content; margin: auto;">
+        The lack of clarity, far from 
+        <br> disturbing us, seems rather to 
+        <br> suit the painting perfectly..
+    </h2>
+    </div>
+
+    <div class="overlay" style="left: 19%; top: 88%">
+        <h2 class="header" style="width: fit-content; margin: auto;">
+            Where lies the key to this mystery? 
+            <br> Ultimately it is the magic of shadows.
+        </h2>
+        </div>
+
+    <div class="overlay" style="left: 65%; top: 115%;">
     <h2 class = "header" style="width: fit-content; margin: auto;">
         Have not you yourselves
         <br>sensed a difference in the
@@ -90,15 +109,15 @@
     </h2>
     </div>
 
-    <div class="overlay" style="left: 65%; top: 95%;">
+    <div class="overlay" style="left: 20%; top: 138%;">
         <h2 class = "header" style="width: fit-content; margin: auto;">
             Have you never felt a sort 
-            <br> of fear in the face
-            <br> of the ageless...
+            <br> of fear in the face of the
+            <br> ageless...
         </h2>
     </div>
 
-    <div class="overlay" style="left: 45%; top: 130%;">
+    <div class="overlay" style="left: 45%; top: 170%;">
         <h2 class = "header" style="width: fit-content; margin: auto;">
              ... a fear that in that room you 
             <br> might lose all consciousness of 
@@ -107,7 +126,14 @@
             <br> emerging you should find you had 
             <br> grown old and gray? 
         </h2>
+    </div>
+
+    <div class="overlay" style="left: 6%; top: 198%;">
+        <h2 class = "header" style="width: fit-content; margin: auto;">
+            How, in such a dark place, 
+            <br> gold draws so much light to 
+            <br> itself is a mystery to me.
+        </h2>
         </div>
-
-
+        
 <script>
