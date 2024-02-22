@@ -48,6 +48,10 @@
         pointer-events: none;
     }
 
+    .spotlight.clickable {
+        pointer-events: auto;
+    }
+
     .overlay {
         position: absolute;
         width: 100vw;
@@ -56,7 +60,7 @@
     }
 
     .hero {
-        position: relative; /* Change from absolute to relative */
+        position: relative; 
         width: 100vw;
         height: 100vh;
         background-image: url('https://i.picsum.photos/id/100/2500/1656.jpg?hmac=gWyN-7ZB32rkAjMhKXQgdHOIBRHyTSgzuOK6U0vXb1w');
@@ -121,7 +125,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        z-index: 1000;
+        z-index: 10000;
     }
 
     #circle-svg {
@@ -132,8 +136,9 @@
         border: 2px solid #232323;
         width: 34px;
         height: 34px;
-        z-index: 100;
+        z-index: 101;
         margin-top: 14rem;
+        z-index: 10000;
     }
 
     #circle-svg:hover {
@@ -141,12 +146,14 @@
         height: 44px;
         border-radius: 100px;
         border: 2px solid #232323;
+        z-index: 10000;
     }
 
     .svg-container {
         position: relative;
         width: 100%;
         height: 100%;
+        z-index: 10000;
     }
 
     #inside-svg {
@@ -157,21 +164,25 @@
         fill: #232323;
         width: 34px;
         height: 34px;
+        z-index: 10000;
     }
 
     .home {
         position: absolute; 
         bottom: 95%;
+        z-index: 101;
         left: 53%;
         transform: translate(-50%, 50%);
         width: 34px;
         height: 34px;
         transition: all 0.3s;
         display: inline-block;
+        z-index: 10000;
     }
 
     .home:hover {
         transform: translate(-50%, 50%) scale(1.2); 
+        z-index: 10000;
     }
 
 </style>
@@ -187,20 +198,16 @@
         <div>
     
             <div class="grid-container">
-                <a href="../brah/index.html" id="home">
-                    <div class="home">
-                        <img src="../assets/home.svg" alt="Home">
-                    </div>
-                </a>
-        
-                <a href="../page3/index.html" id="svg-link">
-                    <div class="svg-container" id="circle-svg">
-                        <svg id="inside-svg" viewBox="0 0 24 24" width="24" height="24">
-                            <circle cx="12" cy="12" r="10" fill="#232323"/>
-                        </svg>
-                    </div>
-                </a>
-            </div>
+                <div class="home" id="home">
+                    <img src="../assets/home.svg" alt="Home">
+                </div>
+            
+                <div class="svg-container" id="circle-svg">
+                    <svg id="inside-svg" viewBox="0 0 24 24" width="24" height="24">
+                        <circle cx="12" cy="12" r="10" fill="#232323"/>
+                    </svg>
+                </div>
+            </div>          
 
             <p>And so it has come to be that the beauty of a Japanese room depends on a variation of shadows, heavy shadows against light shadows-it has nothing else. Westerners are amazed at the simplicity of Japanese rooms, perceiving in them no more than ashen walls bereft of ornament. Their reaction is understandable, but it betrays a failure to comprehend the mystery of shadows. Out beyond the sitting room, which the rays of the sun can at best but barely reach, we extend the eaves or build on a veranda, putting the sunlight at still greater a remove. The light from the garden steals in but dimly through paper-paneled doors, and it is precisely this indirect light that makes for us the charm of a room. We do our walls in neutral colors so that the sad, fragile, dying rays can sink into absolute repose. The storehouse, kitchen, hallways, and such may have a glossy finish, but the walls of the sitting room will almost always be of day textured with fine sand. A luster here would destroy the soft fragile beauty of the feeble light. We delight in the mere sight of the delicate glow of fading rays clinging to the surface of a dusky wall, there to live out what little life remains to them. We never tire of the sight, for to us this pale glow and these dim shadows far surpass any ornament. And so, as we must if we are not to disturb the glow, we finish the walls with sand in a single neutral color. The hue may differ from room to room, but the degree of difference will be ever so slight; not so much a difference in color as in shade, a difference that will seem to exist only in the mood of the viewer. And from these delicate differences in the hue of the walls, the shadows in each room take on a tinge peculiarly their own.
                 <br>
@@ -216,19 +223,48 @@
             spotlight.src = '../assets/spotlight.svg';
             spotlight.classList.add('spotlight');
             document.body.appendChild(spotlight);
-    
+
             function updateSpotlightPosition(e) {
                 const x = e.clientX;
                 const y = e.clientY;
                 spotlight.style.left = x - spotlight.width / 2 + 'px';
                 spotlight.style.top = y - spotlight.height / 2 + 'px';
+
+                // Check if the spotlight is hovering over clickable elements
+                const clickableElements = document.querySelectorAll('a, button, input[type="button"]');
+                const isHoveringOverClickable = Array.from(clickableElements).some(element => {
+                    const rect = element.getBoundingClientRect();
+                    return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+                });
+
+                // Add or remove the 'clickable' class based on the result
+                if (isHoveringOverClickable) {
+                    spotlight.classList.add('clickable');
+                } else {
+                    spotlight.classList.remove('clickable');
+                }
             }
-    
+
+            function handleElementClick(e) {
+                // Check if the clicked element is an anchor tag or a button
+                if (e.target.tagName.toLowerCase() === 'a' || e.target.tagName.toLowerCase() === 'button' || e.target.id === 'home' || e.target.id === 'circle-svg') {
+                    // If it's an anchor tag, prevent default action to prevent navigation
+                    if (e.target.tagName.toLowerCase() === 'a') {
+                        e.preventDefault();
+                    }
+                    // If it's a button or an SVG, do nothing as it already has its default behavior
+                    // For anchor tags, navigate to the href specified
+                    const href = e.target.getAttribute('href');
+                    if (href) {
+                        window.location.href = href;
+                    }
+                }
+            }
+
             document.addEventListener('mousemove', updateSpotlightPosition);
             window.addEventListener('scroll', updateSpotlightPosition);
+            document.addEventListener('click', handleElementClick);
         });
     </script>
-    
-    
 </body>
 </html>
