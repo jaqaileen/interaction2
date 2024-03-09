@@ -3,16 +3,6 @@
     src: url('./assets/ABCMaxiRoundMonoVariable-Trial.ttf') format('truetype');
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    position: relative;
-}    
-
 .title {
     font-family: 'ABCMaxiRoundMonoVariable-Trial', sans-serif;
     font-size: 6.05rem;
@@ -20,50 +10,63 @@ body {
     line-height: 1;
     position: fixed;
     top: 50%;
-    left: 50.2%;
+    left: 50.1%;
     transform: translate(-50%, -50%);
     z-index: 100;
 }
 
-.grid-container {
-    display: grid;
-    text-align: center;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 0;
-    overflow: auto;
-    height: 100%; 
-    margin: auto; /* Center the container horizontally */
-}
-
-.grid-item {
+body {
+    height: auto;
+    margin: 0;
     background-color: #f0f0f0;
-    border: 0.5px solid #141414;
-    width: 33.33vw;
-    text-align: center;
-    height: 50vh;
-    position: relative;
+    display: flex;
+    justify-content: space-between;
 }
 
-.grid-item-middle {
-    background-color: #f0f0f0;
-    border: 0.5px solid #141414;
-    width: 33.33vw;
-    text-align: center;
-    height: 50vh;
-    position: relative;
-    direction: rtl; 
-    overflow-y: auto;
-}
-
-@media screen and (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(30px);
     }
 }
 
-.container {
-    height: 80vh;
-    overflow-y: scroll;
+.left, .middle, .right {
+    height: 500vh;
+    width: calc(100vw / 3);
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: -400vh;
+}
+
+.middle {
+    margin-top: 0vh; 
+}
+
+.right {
+    float: right; 
+    margin-left: auto;
+}
+
+.box {
+    height: 50vh;
+    width: 100%; 
+    border: 0.7px solid #141414;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px); /* Adjust the bounce height as needed */
+    }
+}
+
+.bounce {
+    animation: bounce 0.5s;
 }

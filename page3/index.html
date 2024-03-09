@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ambiguity & Confusion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Buljirya&display=swap');  
+    
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #F1EEE5;
+    }
+    .title {
+        position: fixed;
+        font-family: 'buljirya', sans-serif;
+        font-size: 2.8rem;
+        line-height: 2;
+        text-align: left;
+        margin: 5% 7% 1% 7%;
+        color: #232323;
+    }
+
+    p {
+        position: fixed;
+        font-family: 'Cardo', serif; 
+        color: #232323; 
+        margin: 23% 9% 7% 7%;
+        line-height: 1.8;
+        font-size: 1.6rem;
+        z-index: -20;
+    }
+
+    .overlay {
+        position: absolute;
+        background-color: rgba(35, 35, 35, 0.5);
+        backdrop-filter: blur(10px); 
+        -webkit-backdrop-filter: blur(5px);
+        border-radius: 10px;
+        padding: 2%; 
+        width: fit-content;
+        filter: blur(5px);
+        transition: filter 0.3s ease; 
+    }
+
+    .overlay:hover {
+        filter: blur(0px); 
+    }
+    
+    .header {
+        font-family: 'Cardo', serif;
+        font-style: italic;
+        line-height: 1.5;
+        font-weight: 700;;
+        font-size: 2rem;
+        color: #F1EEE5; 
+        text-align: left;
+        filter: blur(0px); 
+    }
+
+    .grid-container {
+        position: fixed;
+        top: 33%;
+        right: 0;
+        height: 100vh;
+        width: 8vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #circle-svg {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s;
+        border-radius: 100px;
+        border: 2px solid #232323;
+        width: 34px;
+        height: 34px;
+        z-index: 100;
+        margin-top: 14rem;
+    }
+
+    #circle-svg:hover {
+        width: 44px;
+        height: 44px;
+        border-radius: 100px;
+        border: 2px solid #232323;
+    }
+
+    .svg-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    #inside-svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        fill: #232323;
+        width: 34px;
+        height: 34px;
+    }
+
+    .home {
+        position: absolute; 
+        bottom: 95%;
+        left: 53%;
+        transform: translate(-50%, 50%);
+        width: 34px;
+        height: 34px;
+        transition: all 0.3s;
+        display: inline-block;
+    }
+
+    .home:hover {
+        transform: translate(-50%, 50%) scale(1.2); 
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="title">Ambiguity
+    <br> & 
+    <br>
+    Confusion</h1>
+
+    <div class="grid-container">
+        <a href="../brah/index.html" id="home">
+            <div class="home">
+                <img src="../assets/home.svg" alt="Home">
+            </div>
+        </a>
+
+        <a href="../page4/index.html" id="svg-link">
+            <div class="svg-container" id="circle-svg">
+                <svg id="inside-svg" viewBox="0 0 24 24" width="24" height="24">
+                    <circle cx="12" cy="12" r="10" fill="#232323"/>
+                </svg>
+            </div>
+        </a>
+    </div>
+
+    <p>
+        In temple architecture the main room stands at a considerable distance from the garden; so dilute is the light there that no matter what the season, on fair days or cloudy, morning, midday, or evening, the pale, white glow scarcely varies. And the shadows at the interstices of the ribs seem strangely immobile, as if dust collected in the corners had become a part of the paper itself. I blink in uncertainty at this dreamlike luminescence, feeling as though some misty film were blunting my vision. The light from the pale white paper, powerless to dispel the heavy darkness of the alcove, is instead repelled by the darkness, creating a world of confusion where dark and light are indistinguishable. Have not you yourselves sensed a difference in the light that suffuses such a room, a rare tranquility not found in ordinary light? Have you never felt a sort of fear in the face of the ageless, a fear that in that room you might lose all consciousness of the passage of time, that untold years might pass and upon emerging you should find you had grown old and gray?
+    </p>
+    
+    <div class="overlay" style="left: 55%; top: 10%">
+        <h2 class="header" style="width: fit-content; margin: auto;">
+            The light from the pale  
+            <br> whitepaper, powerless to 
+            <br> dispel the heavy darkness  
+            <br> of the alcove, is instead 
+            <br> repelled by the darkness,
+            <br> creating a world of 
+            <br> confusion where dark and 
+            <br> light are indistinguishable.
+        </h2>
+    </div>
+
+    <div class="overlay" style="left: 10%; top: 55%">
+        <h2 class="header" style="width: fit-content; margin: auto;">
+            The lack of clarity, far from 
+            <br> disturbing us, seems rather to 
+            <br> suit the painting perfectly..
+        </h2>
+    </div>
+
+    <div class="overlay" style="left: 19%; top: 88%">
+        <h2 class="header" style="width: fit-content; margin: auto;">
+            Where lies the key to this mystery? 
+            <br> Ultimately it is the magic of shadows.
+        </h2>
+    </div>
+
+    <div class="overlay" style="left: 60%; top: 115%;">
+        <h2 class = "header" style="width: fit-content; margin: auto;">
+            Have not you yourselves
+            <br>sensed a difference in the
+            <br> light that suffuses such 
+            <br> a room, a rare tranquility 
+            <br> not found in ordinary light? 
+     </h2>
+    </div>
+
+    <div class="overlay" style="left: 20%; top: 138%;">
+        <h2 class = "header" style="width: fit-content; margin: auto;">
+            Have you never felt a sort 
+            <br> of fear in the face of the
+            <br> ageless...
+        </h2>
+    </div>
+
+    <div class="overlay" style="left: 45%; top: 170%;">
+        <h2 class = "header" style="width: fit-content; margin: auto;">
+             ... a fear that in that room you 
+            <br> might lose all consciousness of 
+            <br> the passage of time, that 
+            <br> untold years might pass and upon 
+            <br> emerging you should find you had 
+            <br> grown old and gray? 
+        </h2>
+    </div>
+
+    <div class="overlay" style="left: 7%; top: 198%;">
+        <h2 class = "header" style="width: fit-content; margin: auto;">
+            How, in such a dark place, 
+            <br> gold draws so much light to 
+            <br> itself is a mystery to me.
+        </h2>
+    </div>
+        
+        
+<script>
