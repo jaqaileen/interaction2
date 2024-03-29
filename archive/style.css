@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
 @font-face {
     font-family: 'ABCMaxiRoundMonoVariable-Trial';
     src: url('./assets/ABCMaxiRoundMonoVariable-Trial.ttf') format('truetype');
 }
+
 
 .title {
     font-family: 'ABCMaxiRoundMonoVariable-Trial', sans-serif;
@@ -21,6 +24,8 @@ body {
     background-color: #f0f0f0;
     display: flex;
     justify-content: space-between;
+    font-family: "Lexend", sans-serif;
+
 }
 
 @keyframes bounce {
@@ -35,7 +40,6 @@ body {
 .left, .middle, .right {
     height: 500vh;
     width: calc(100vw / 3);
-    background-color: #f0f0f0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,25 +52,52 @@ body {
 }
 
 .right {
-    float: right; 
     margin-left: auto;
 }
 
 .box {
-    height: 50vh;
-    width: 100%; 
+    height: calc(100vw / 3);
+    width: 100%;
     border: 0.7px solid #141414;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Ensure child elements with absolute position are relative to this */
+    padding: 10px; 
+    flex: none;
 }
 
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px); /* Adjust the bounce height as needed */
-    }
+.box img {
+    width: auto;
+    height: 28%; /* Let the browser handle the aspect ratio */
+    max-width: 100%; /* Ensure the image doesn't overflow the box */
+    max-height: 100%; /* Ensure the image doesn't overflow the box */
+    object-fit: contain; /* Fit the image inside the box */
+    position: absolute; /* Position the image */
+    top: 50%; /* Center the image vertically */
+    left: 50%; /* Center the image horizontally */
+    transform: translate(-50%, -50%);
 }
 
-.bounce {
-    animation: bounce 0.5s;
+.name h2 {
+    font-family: "Lexend", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.2rem;
+    margin: 5px 0;
+    color: #141414;
+    text-align: left;
 }
+.type p,
+.about p,
+.composition p,
+.hardness p,
+.varieties p {
+    font-family: "Lexend", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 0.8rem;
+    margin: 5px 0;
+    color: #141414;
+    margin-left: 15%;
+}
+
