@@ -8,7 +8,7 @@
 
 .title {
     font-family: 'ABCMaxiRoundMonoVariable-Trial', sans-serif;
-    font-size: 6.05rem;
+    font-size: 6.8vw;
     text-align: center;
     line-height: 1;
     position: fixed;
@@ -44,7 +44,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: -400vh;
+    margin-top: -420vh;
 }
 
 .middle {
@@ -56,48 +56,88 @@ body {
 }
 
 .box {
-    height: calc(100vw / 3);
+    height: 50vh;
     width: 100%;
     border: 0.7px solid #141414;
     display: flex;
     flex-direction: column;
-    position: relative; /* Ensure child elements with absolute position are relative to this */
+    position: relative;
     padding: 10px; 
     flex: none;
+    overflow: hidden
 }
+/* 
+.container {
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    height: 100vh; 
+} */
 
-.box img {
+.default {
     width: auto;
-    height: 28%; /* Let the browser handle the aspect ratio */
-    max-width: 100%; /* Ensure the image doesn't overflow the box */
-    max-height: 100%; /* Ensure the image doesn't overflow the box */
-    object-fit: contain; /* Fit the image inside the box */
-    position: absolute; /* Position the image */
-    top: 50%; /* Center the image vertically */
-    left: 50%; /* Center the image horizontally */
+    height: 32%;
+    max-width: 100%; 
+    max-height: 100%;
+    object-fit: contain; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%;
     transform: translate(-50%, -50%);
+    object-fit: contain;
+    transition: opacity 0.3s ease; 
+}  
+
+.centered {
+    width: auto;
+    height: auto;
+    max-width: 150%;
+    max-height: 150%;
+    object-fit: contain;
+    align-items: center;
+    position: absolute;
+    transition: opacity 0.3s ease;
+    filter: blur(20px);
+    opacity: 0;
 }
 
-.name h2 {
+.name {
+    z-index: 100;
     font-family: "Lexend", sans-serif;
     font-weight: 600;
     font-style: normal;
-    font-size: 1.2rem;
-    margin: 5px 0;
+    font-size: 1.4vw;
     color: #141414;
-    text-align: left;
+    opacity: 0;
+    position: relative;
+    line-height: 3.3vh;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+    top: 10%; 
+    left: 10%
 }
-.type p,
-.about p,
-.composition p,
-.hardness p,
-.varieties p {
+.type,
+.about,
+.composition,
+.hardness,
+.varieties {
+    z-index: 100;
     font-family: "Lexend", sans-serif;
     font-weight: 300;
     font-style: normal;
-    font-size: 0.8rem;
-    margin: 5px 0;
+    font-size: 1vw;
     color: #141414;
-    margin-left: 15%;
+    opacity: 0;
+    position: relative;
+    line-height: 3.2vh;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+    top: 12%; 
+    left: 10%;
+    word-wrap: break-word;
+    max-width: 65%;
 }
 
+.show {
+    opacity: 1;
+}

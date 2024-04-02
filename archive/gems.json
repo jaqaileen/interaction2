@@ -120,18 +120,6 @@
     "Varieties": "Fire, Black, Boulder, Crystal, etc."
   },
   {
-    "Name": "Lapis Lazuli",
-    "ImageLink": "https://www.eddieborgo.com/cdn/shop/articles/LAPIS_877x644.jpg?v=1590049894",
-    "ImageLink2": "https://www.artbygod.com/wp-content/uploads/2018/01/03090-001-Lapiz-1.jpg",
-    "Type": "Rock",
-    "About": "Blue metamorphic rock containing lazurite",
-    "Chemical Formula": "(Na,Ca)8(AlSiO4)6(SO4,S,Cl)1-2",
-    "Composition": "Silicate",
-    "Colors": "Blue, often with gold specks",
-    "Hardness": "5-6",
-    "Varieties": null
-  },
-  {
     "Name": "Malachite",
     "ImageLink": "https://ids.si.edu/ids/deliveryService?max_w=800&id=ark:/65665/m3392ce0bb2a8e42a4b070e5f4339b8da5",
     "ImageLink2": "https://www.si.edu/object/malachite:nmnhmineralsciences_1117495",
@@ -141,6 +129,18 @@
     "Composition": "Copper carbonate",
     "Colors": "Green",
     "Hardness": "3.5-4",
+    "Varieties": null
+  },
+  {
+    "Name": "Lapis Lazuli",
+    "ImageLink": "https://www.eddieborgo.com/cdn/shop/articles/LAPIS_877x644.jpg?v=1590049894",
+    "ImageLink2": "https://www.artbygod.com/wp-content/uploads/2018/01/03090-001-Lapiz-1.jpg",
+    "Type": "Rock",
+    "About": "Blue metamorphic rock containing lazurite",
+    "Chemical Formula": "(Na,Ca)8(AlSiO4)6(SO4,S,Cl)1-2",
+    "Composition": "Silicate",
+    "Colors": "Blue, often with gold specks",
+    "Hardness": "5-6",
     "Varieties": null
   },
   {
@@ -205,8 +205,8 @@
   },
   {
     "Name": "Beryl",
-    "ImageLink": "https://www.si.edu/object/beryl:nmnhmineralsciences_1154525",
-    "ImageLink2": "https://www.si.edu/object/beryl:nmnhmineralsciences_1085356",
+    "ImageLink": "https://ids.si.edu/ids/deliveryService?max_w=800&id=ark:/65665/m35fc79e5242324f46aabb537b2e63cc66",
+    "ImageLink2": "https://www.si.edu/object/beryl:nmnhmineralsciences_1154525",
     "Type": "Mineral",
     "About": "Group of silicate minerals, includes emerald and aquamarine",
     "Chemical Formula": "Be3Al2(SiO3)6",
@@ -324,6 +324,16 @@
     "Varieties": null
   },
   {
+    "Name": "Garnet",
+    "ImageLink": "https://ids.si.edu/ids/deliveryService?max_w=800&id=ark:/65665/m3679d2f671d644e4fbf1bf96619e6c592",
+    "Type": "Mineral",
+    "About": "Soft sulfate mineral composed of calcium sulfate dihydrate",
+    "Composition": "Hydrated calcium sulfate",
+    "Colors": "colorless. white",
+    "Hardness": "2",
+    "Varieties": "Satin spar, Selenite"
+  },
+  {
     "Name": "Obsidian",
     "ImageLink": "https://miro.medium.com/v2/resize:fit:1400/1*CbWwaA1EDiyZ-G6qOe0oyQ.png",
     "Type": "Igneous Rock",
@@ -369,7 +379,7 @@
     "Varieties": null
   },
   {
-    "Name": "Selenite",
+    "Name": "Selenite (var. Gypsum)",
     "ImageLink": "https://rockseeker.com/wp-content/uploads/2022/09/selenite-crystals-2.jpg",
     "ImageLink2": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Gypse-s%C3%A9l%C3%A9nite_3.jpeg",
     "Type": "Mineral",
