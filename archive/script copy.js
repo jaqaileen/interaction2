@@ -24,20 +24,14 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateBox(box, data) {
         const boxHTML = 
         `
-            
             <img class="default" src="${data.ImageLink}">
-
-            <div class="show"> 
-                <div class="text">
-                    <h2 class="name">${data.Name}</h2>
-                    <p class="type">${data.Type}</p>  
-                    <p class="type">${data.About}</p>  
-                    <p class="type">${data.Composition}</p> 
-                    <p class="type">${data.Hardness}</p>  
-                    <p class="type">${data.Varieties}</p>  
-                </div>
+            <h2 class="name">${data.Name}</h2>
+            <p class="type">${data.Type}</p>  
+            <p class="type">${data.About}</p>  
+            <p class="type">${data.Composition}</p> 
+            <p class="type">${data.Hardness}</p>  
+            <p class="type">${data.Varieties}</p>  
             <img class="centered" src="${data.ImageLink}">  
-            </div>
         `
         
         box.insertAdjacentHTML('beforeend', boxHTML);

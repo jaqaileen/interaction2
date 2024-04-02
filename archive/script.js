@@ -24,15 +24,19 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateBox(box, data) {
         const boxHTML = 
         `
-            <img class="default" src="${data.ImageLink}">
-              
-            <h2 class="name">${data.Name}</h2>
-            <p class="type">${data.Type}</p>  
-            <p class="type">${data.About}</p>  
-            <p class="type">${data.Composition}</p> 
-            <p class="type">${data.Hardness}</p>  
-            <p class="type">${data.Varieties}</p>  
-            <img class="centered" src="${data.ImageLink}">  
+        <img class="default" src="${data.ImageLink}">
+
+        <div class="show"> 
+        <h2 class="name">${data.Name}</h2>
+            <div class="text">
+                <p class="type">${data.Type}</p>  
+                <p class="type">${data.About}</p>  
+                <p class="type">${data.Composition}</p> 
+                <p class="type">${data.Hardness}</p>  
+                <p class="type">${data.Varieties}</p>  
+            </div>
+        <img class="centered" src="${data.ImageLink}">  
+        </div>
         `
         
         box.insertAdjacentHTML('beforeend', boxHTML);
@@ -54,18 +58,17 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                     box.classList.toggle('is-active');
 
-                    const image = box.querySelector('img');
-                    console.log(image);
-                    if (image.style.opacity === '' || image.style.opacity === '1') {
-                        image.style.opacity = '0'; // Change opacity to 0 if not already
-                    } else {
-                        image.style.opacity = '1'; // Toggle back to original opacity
-                    }
                 })
+            })
+
+            boxes.forEach(box => {
+                box.addEventListener('click', () => {
+                    const image = box.querySelector('.centered'); 
+                    image.classList.toggle('show');
+                    });
+                    box.classList.toggle('is-active');
             })
             
         })
         .catch(error => console.error("Error fetching JSON:", error));
 });
-
-
