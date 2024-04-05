@@ -20,6 +20,12 @@ $(document).scroll(function(){
     lastKnownScrollY = scrollTop;
 });
 
+
+// listen for scroll events in general
+// try to use e.preventDefault()
+// instead try virutally scrolling in the direction you want per column
+// something like [element here].scrollBy(x, y)
+
 document.addEventListener("DOMContentLoaded", function () {
     function updateBox(box, data) {
         const boxHTML = 
@@ -72,3 +78,80 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error("Error fetching JSON:", error));
 });
+
+$(window).scroll(function() {
+    if ($(window).scrollTop() >= 4064) {
+        $(window).scrollTop(164);
+    } else if ($(window).scrollTop() <= 0) {
+        $(window).scrollTop(4000);
+    }
+});
+
+
+$(window).scroll(function() {
+    var windowHeight = $(window).height();
+    if ($(window).scrollTop() >= windowHeight * 5.5) { 
+        $('html, body').animate({ scrollTop: windowHeight }, 800); 
+    } else if ($(window).scrollTop() <= 0) {
+        $('html, body').animate({ scrollTop: windowHeight * 5.5}, 800);
+    }
+});
+
+
+
+
+// const leftContainer = document.querySelector('.left');
+// const middleContainer = document.querySelector('.middle');
+// const rightContainer = document.querySelector('.right');
+
+// leftContainer.scrollBy(0,10000)
+// rightContainer.scrollBy(0,10000)
+
+// middleContainer.addEventListener('wheel', function(e) {
+//     console.log(e)
+//     leftContainer.scrollBy({
+//         behavior: 'smooth',
+//         left: 0,
+//         top: -e.deltaY
+//     });
+    
+//     rightContainer.scrollBy({
+//         behavior: 'smooth',
+//         left: 0,
+//         top: -e.deltaY
+//     });
+// });
+
+//     leftContainer.addEventListener('wheel', function(e) {
+//         console.log(e)
+//         middleContainer.scrollBy({
+//             behavior: 'smooth',
+//             left: 0,
+//             top: -e.deltaY
+//         });
+        
+//         rightContainer.scrollBy({
+//             behavior: 'smooth',
+//             left: 0,
+//             top: -e.deltaY
+//         });
+//     });
+
+//         rightContainer.addEventListener('wheel', function(e) {
+//             console.log(e)
+//             middleContainer.scrollBy({
+//                 behavior: 'smooth',
+//                 left: 0,
+//                 top: -e.deltaY
+//             });
+            
+//             leftContainer.scrollBy({
+//                 behavior: 'smooth',
+//                 left: 0,
+//                 top: -e.deltaY
+//             });
+//         });
+// [leftContainer, rightContainer].forEach(container => {
+//     container.addEventListener('wheel', function(e) {
+//     });
+// });

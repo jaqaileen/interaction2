@@ -1,24 +1,36 @@
-let lastKnownScrollY = 0;
+document.addEventListener("DOMContentLoaded", function() {
+    const leftContainer = document.querySelector('.left');
+    const middleContainer = document.querySelector('.middle');
+    const rightContainer = document.querySelector('.right');
 
-$(document).scroll(function(){
-    let scrollTop = $(this).scrollTop();
-    $('.left, .right').css('transform', 'translateY('+ scrollTop * 2 +'px)');
-});
-
-$(document).scroll(function(){
-    let scrollTop = $(this).scrollTop();
-    let scrollDirection = scrollTop > lastKnownScrollY ? 'down' : 'up';
-
-    $('.left, .right').css('transform', 'translateY('+ scrollTop * 2 +'px)');
-
-    if (scrollDirection === 'down') {
-        $('.left, .right').removeClass('bounce'); // Remove bounce class when scrolling down
-    } else {
-        $('.left, .right').addClass('bounce'); // Add bounce class when scrolling up
+    // Function to synchronize scrolling
+    function syncScroll(event) {
+        const { scrollTop } = event.target;
+        leftContainer.scrollTop = scrollTop;
+        rightContainer.scrollTop = scrollTop;
     }
 
-    lastKnownScrollY = scrollTop;
+    // Add scroll event listeners to the middle container
+    middleContainer.addEventListener('scroll', syncScroll);
+
+    // Add scroll event listeners to the left and right containers
+    leftContainer.addEventListener('scroll', syncScroll);
+    rightContainer.addEventListener('scroll', syncScroll);
+
+    // Prevent default scroll behavior for the left and right containers
+    [leftContainer, rightContainer].forEach(container => {
+        container.addEventListener('wheel', function(e) {
+            e.preventDefault();
+            container.scrollBy({
+                top: -e.deltaY,
+                behavior: 'smooth'
+            });
+            // Trigger the scroll event on the middle container to sync the scrolling
+            middleContainer.dispatchEvent(new Event('scroll'));
+        });
+    });
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
     function updateBox(box, data) {
