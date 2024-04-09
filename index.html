@@ -53,10 +53,10 @@
             display: flex;
             flex-direction: column;
             align-items: center; 
-            height: 100vh;
-            width: 100vw;
-            border-top-right-radius: 35px;
-            border-top-left-radius: 35px;
+            height: auto; /* Adjusted for responsiveness */
+            width: 90vw; /* Adjusted for responsiveness */
+            border-top-right-radius: 25px;
+            border-top-left-radius: 25px;
             z-index: 9;
         }
 
@@ -97,7 +97,6 @@
             color: inherit !important;
         }
 
-
         .project {
             width: 80%;
         }
@@ -134,16 +133,16 @@
             font-family: "pt-mono", monospace;
             color: #2E3C99;
         }
-
+/* 
         .bottom-nav {
             display: flex;
             justify-content: space-around;
-            width: 360px;
+            width: 30%;
             position: fixed;
             bottom: 3%;
             background-color: #EECCD9;
             padding: 5px 0;
-            border-radius: 40px;
+            border-radius: 15px;
             z-index: 10;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -153,7 +152,7 @@
             font-family: 'Editorial New', serif;
             color: #2E3C99;
             border: none;
-            padding: 10px 22px;
+            padding: 3% 6%;
             text-align: center;
             text-decoration: none;
             display: inline-block;
@@ -166,16 +165,17 @@
         }
 
         .bottom-nav button.logo {
+            padding: none;
             background: url('./assets/logo.png') no-repeat center center;
             background-size: cover;
-            width: 135px;
+            width: auto;
+            height: 30%;
         }
 
         .bottom-nav button:hover {
             background-color: #E189B0;
             z-index: 12;
-        }
-
+        } */
 
     </style>
 </head>
@@ -189,7 +189,7 @@
             </svg>
         </div>
     </div>
-
+<!-- 
     <div class="bottom-nav">
         <a href="http://jaqaileen.com/">
             <button class="logo"></button>
@@ -197,7 +197,7 @@
         <button>Studio</button>
         <button>Lab</button>
     </div>
-    
+     -->
 
     <div class="work-container"> 
     <h3>Works</h3>
@@ -211,6 +211,7 @@
             <h2>Studio</h2>
         </div>
     </a>
+    
 
     <a href="./questionnaire/index.html" class="projectscontainer">
         <div class="project">
@@ -231,7 +232,7 @@
             <h2>Studio</h2>
         </div>
     </a>
-    </div>
+    
 
     <a href="./archive/index.html" class="projectscontainer">
         <div class="project">
@@ -247,14 +248,8 @@
     <script>
         window.addEventListener('scroll', function() {
         var scrollPosition = window.scrollY;
-        var img = document.querySelector('img');
+        var img = document.querySelector('img, .arrow');
         img.style.transform = 'translateY(' + scrollPosition * 0.8 + 'px)';
-    });
-
-        window.addEventListener('scroll', function () {
-        var scrollPosition = window.scrollY;
-        var arrow = document.querySelector('.arrow'); // Correct the selector to use class selector '.arrow'
-        arrow.style.transform = 'translateY(' + scrollPosition * 0.8 + 'px)';
     });
     </script>
 
