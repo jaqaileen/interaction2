@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Grid</title>
+    <style>
+        /* Basic CSS for grid layout */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .image-grid img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* CSS for title */
+        .title {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">Ana's Elastic Collection</div>
+    <div class="image-grid">
+        <img src="./stuff/Screen Shot 2024-04-25 at 10.28.19 AM.png" alt="Image 1">
+        <img src="./stuff/Screen Shot 2024-04-25 at 10.28.38 AM.png" alt="Image 2">
+        <img src="./stuff/Screen Shot 2024-04-25 at 10.28.45 AM.png" alt="Image 3">
+        <img src="./stuff/Screen Shot 2024-04-25 at 10.28.49 AM.png" alt="Image 4">
+    </div>
+</body>
+</html>

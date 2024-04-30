@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christ Fulfilled Prophecies</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="title">
+        Christ Fulfilled Prophecies<br>As Seen In The Christian Bible
+    </div>
+    <div class="container">
+        <div class="left">
+            <div class="lsubtitle">Old Testament</div>
+        <div class="line"></div>
+            <div class="rows"></div>
+        </div>
+        <div class="middle">
+            <!-- gen -->
+            <div class="connect" style="width: 103%; top: 4.9%; transform-origin: top left;"></div>
+            <div class="connect" style="width: 106%; top: 4.9%; transform-origin: top left; transform: rotate(12.5deg);"></div>
+            <div class="connect" style="width: 119%; top: 4.9%; transform-origin: top left; transform: rotate(29.5deg);"></div>
+            <div class="connect" style="width: 140%; top: 4.9%; transform-origin: top left; transform: rotate(42.5deg);"></div>
+            <!-- ex -->
+            <div class="connect" style="width: 106%; top: 7.5%; transform-origin: top left; transform: rotate(13deg);"></div>
+            <!-- num -->
+            <div class="connect" style="width: 109%; top: 13.5%; transform-origin: top left; transform: rotate(-19.5deg);"></div>
+            <!-- deut -->
+            <div class="connect" style="width: 103%; top: 16.2%; transform-origin: top left;"></div>
+            <!-- 2 S -->
+            <div class="connect" style="width: 133%; top: 30.8%; transform-origin: top left; transform: rotate(-39deg);"></div>
+            <div class="connect" style="width: 114%; top: 30.8%; transform-origin: top left; transform: rotate(-25deg);"></div>
+            <!-- Psalm -->
+            <div class="connect" style="width: 237%; top: 57%; transform-origin: top left; transform: rotate(-64.3deg);"></div>
+            <div class="connect" style="width: 227%; top: 57%; transform-origin: top left; transform: rotate(-63deg);"></div>
+            <div class="connect" style="width: 217%; top: 57%; transform-origin: top left; transform: rotate(-61.6deg);"></div>
+            <div class="connect" style="width: 197%; top: 57%; transform-origin: top left; transform: rotate(-58.5deg);"></div>
+            <div class="connect" style="width: 103%; top: 56.8%; transform-origin: top left;"></div>
+        </div>
+        <div class="right">
+            <div class="rsubtitle">New Testament</div>
+        <div class="line"></div>
+            <div class="rows"></div>
+        </div>
+    </div>
+        <script>
+        fetch('idk.json')
+                .then(response => response.json()) 
+                .then(data => {
+                    const leftContainer = document.querySelector('.left .rows');
+                    const rightContainer = document.querySelector('.right .rows');
+
+                    const oldTestamentNames = data.map(item => item.old_book);
+                    const newTestamentNames = data.map(item => item.new_book);
+
+                    const uniqueOldTestamentNames = new Set(oldTestamentNames);
+                    const uniqueNewTestamentNames = new Set(newTestamentNames);
+
+                    uniqueOldTestamentNames.forEach(item => {
+                        const leftRow = document.createElement('div');
+                        leftRow.classList.add('row');
+                        const leftBook = document.createElement('span');
+                        leftBook.classList.add('lbook-name');
+                        leftBook.textContent = `${item}`;
+                        leftRow.appendChild(leftBook);
+
+                        // Append circle
+                        const circle = document.createElement('div');
+                        circle.classList.add('lcircle');
+                        leftRow.appendChild(circle);
+
+                        leftContainer.appendChild(leftRow);
+
+                        // Add event listener to the leftRow for hovering
+                        leftRow.addEventListener('mouseenter', () => {
+                            // Find corresponding new_books based on the hovered old_book
+                            const correspondingNewBooks = data
+                                .filter(entry => entry.old_book === item)
+                                .map(entry => entry.new_book);
+
+                            // Bold corresponding new_books
+                            correspondingNewBooks.forEach(newBook => {
+                                const rightRows = rightContainer.querySelectorAll('.rbook-name');
+                                rightRows.forEach(rightRow => {
+                                    if (rightRow.textContent === newBook) {
+                                        rightRow.style.fontWeight = 'bold';
+                                    }
+                                });
+                            });
+                        });
+
+                        leftRow.addEventListener('mouseleave', () => {
+                            rightContainer.querySelectorAll('.rbook-name').forEach(newBook => {
+                                newBook.style.fontWeight = 'normal';
+                            });
+                        });
+                    });
+
+                    uniqueNewTestamentNames.forEach(item => {
+                        const rightRow = document.createElement('div');
+                        rightRow.classList.add('row');
+                        const rightBook = document.createElement('span');
+                        rightBook.classList.add('rbook-name');
+                        rightBook.textContent = `${item}`;
+                        rightRow.appendChild(rightBook);
+
+                        // Append circle
+                        const circle = document.createElement('div');
+                        circle.classList.add('rcircle');
+                        rightRow.appendChild(circle);
+
+                        rightContainer.appendChild(rightRow);
+
+                        rightRow.addEventListener('mouseenter', () => {
+                            const correspondingOldBooks = data
+                                .filter(entry => entry.new_book === item)
+                                .map(entry => entry.old_book);
+
+                            // Bold corresponding old_books
+                            correspondingOldBooks.forEach(oldBook => {
+                                const leftRows = leftContainer.querySelectorAll('.lbook-name');
+                                leftRows.forEach(leftRow => {
+                                    if (leftRow.textContent === oldBook) {
+                                        leftRow.style.fontWeight = 'bold';
+                                    }
+                                });
+                            });
+                        });
+
+                        // Remove bold style when mouse leaves the row
+                        rightRow.addEventListener('mouseleave', () => {
+                            leftContainer.querySelectorAll('.lbook-name').forEach(oldBook => {
+                                oldBook.style.fontWeight = 'normal';
+                            });
+                        });
+                    });
+                })
+
+                var data = [undefined];
+                data = data.filter(function( element) {
+                    return element !==undefined;
+                })
+                .catch(error => {
+                    console.error('Error fetching JSON:', error);
+                });
+
+        const connectLine = document.querySelector('.connect');
+
+        // Get the first row of the left column and the third row of the right column
+        const leftFirstRow = document.querySelector('.left .row:first-child');
+        const rightThirdRow = document.querySelector('.right .row:nth-child(3)');
+
+        // Calculate the top offset of the line based on the positions of the rows
+        const topOffset = leftFirstRow.offsetTop;
+        const bottomOffset = rightThirdRow.offsetTop + rightThirdRow.offsetHeight;
+
+        // Set the height of the line to extend from the top to the bottom row
+        connectLine.style.top = topOffset + 'px';
+        connectLine.style.height = (bottomOffset - topOffset) + 'px';
+
+        </script>
+</body>
+</html>

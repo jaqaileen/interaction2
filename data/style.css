@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@font-face {
+    font-family: 'ABCDiatypeVariable';
+    src: url('../assets/ABCDiatypeVariable-Trial.ttf') format('truetype');
+}
+
+.title {
+    font-family: 'ABCDiatypeVariable', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    margin: 6%;
+}
+
+.rsubtitle {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2rem;
+    padding-bottom: 6%;
+    text-align: right;
+}
+
+.lsubtitle {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2rem;
+    padding-bottom: 6%;
+}
+
+.line {
+    background-color: #000;
+    height: 1px;
+    width: 100%;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 10%;
+}
+
+.left, .middle, .right {
+    height: 100%; 
+}
+
+.middle {
+    position: relative; 
+}
+
+.lcircle {
+    width: 10px;
+    height: 10px;
+    background-color: transparent; 
+    border: 1px solid black;
+    border-radius: 50%;
+    position: absolute;
+    left: 97%;
+    transform: translateY(-130%);
+}
+
+.lcircle :hover{
+    color: black; 
+}
+
+.rcircle {
+    width: 10px;
+    height: 10px;
+    background-color: transparent; 
+    border: 1px solid black;
+    border-radius: 50%;
+    position: absolute;
+    left: 0%;
+    transform: translateY(-130%);
+}
+
+.rcircle :hover{
+    background-color: black; 
+}
+
+.row {
+    border-bottom: 1px dashed black; 
+    padding: 3%;
+    position: relative;
+}
+
+.lbook-name {
+    padding-left: 41%;
+    text-align: left;
+    font-family: 'ABCDiatypeVariable', sans-serif;
+    font-size: 1rem;
+    margin: 6%;
+}
+
+.rbook-name {
+    padding-left: 29%;
+    text-align: right !important;
+    font-family: 'ABCDiatypeVariable', sans-serif;
+    font-size: 1rem;
+    margin: 6%;
+}
+
+.connect {
+    left: -1.5%;
+    height: 1px;
+    background-color: black;
+    position: relative;
+}
