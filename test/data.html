@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.js"></script>
+  <link href="https://fonts.cdnfonts.com/css/forma-djr-banner" rel="stylesheet">
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    svg {
+      position: absolute;
+      padding-left: 25%;
+      top: 1%;
+      width: 70vw;
+      height: 100vh;
+    }
+
+    .flex-container {
+        position: fixed;
+        padding-left: 4%;
+        width: 22%;
+        height: 100%;
+        text-align: left;
+        z-index: 100;
+        position: relative;
+        background-color: #F5F5F5;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    h2, h3, p {
+        font-family: 'Forma DJR Banner', sans-serif;
+        letter-spacing: 0.1rem;
+        font-style: normal;
+        position: relative;
+        color: #133414;
+    }
+
+    h2 {
+        position: fixed;
+        font-weight: 600;
+        font-size: 1.3rem;
+        top: 2%;
+    }
+
+    h3 {
+        position: fixed;
+        font-weight: 700;
+        font-size: 0.8rem;
+        padding-top: 12%;
+    }
+
+    p {
+        position: fixed;
+        font-weight: 400;
+        font-size: 1.1rem;
+        padding-top: 12%;
+        margin-left: 65%;
+    }
+
+    .svg-column {
+        top: 11%;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        width: 100;
+        box-shadow: #133414;
+    }
+
+    .svg-column img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10%; 
+    }
+    
+    .svg-column p {
+        position: relative;
+        background-color: #D9D9D9;
+        border-radius: 5px;
+        z-index: -10;
+        padding: 3%;
+        padding-left: 12%;
+        padding-right: 12%;
+        width: max-content;
+        height: 3%;
+    }
+
+    .flower circle {
+      mix-blend-mode: multiply;
+      z-index: 100;
+    }
+
+    .grid-container {
+        display: fixed;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+        z-index: 100;
+    }
+
+    #type-info {
+        position: fixed;
+        display: none;
+        width: 110%;
+        height: 110%;
+        z-index: 100;
+        background-color: rgba(19, 52, 20, 0.7); 
+        backdrop-filter: blur(5px);
+        border-radius: 30px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #type-text {
+        font-family: 'Perandory', sans-serif;
+        font-weight: 100;
+        font-size: 7.5rem;
+        color: #E7AFC7;
+        text-align: center;
+        position: absolute;
+        top: 43%;
+        left: 50%;
+        z-index: 200;
+        transform: translate(-50%, -80%);
+        opacity: 1; 
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex-container">
+    <h2>KEY + FILTERS</h2>
+        <div class="svg-column">
+    <h3 style="margin-top: -13%;">SEASON IN BLOOM:</h3>
+        <img src="../assets/Ellipse 1.svg" alt="Ellipse 1" style="margin-top: 16%; width: 25%; height: auto;">
+        <p id="spring" style="margin-top: -40.7%;">spring</p>
+        <img src="../assets/Ellipse 2.svg" alt="Ellipse 2" style="width: 25%; height: auto;">
+        <p style="margin-top: -38.1%;">summer</p>
+        <img src="../assets/Ellipse 3.svg" alt="Ellipse 3" style="width: 25%; height: auto;">
+        <p style="margin-top: -38.1%;">autumn</p>
+    <h3 style="margin-top: 0.5%;">COLORS:</h3>
+        <img src="../assets/Ellipse 10.svg" alt="Ellipse 10" style="margin-top: 50%; margin-bottom: 6%; margin-left: -2%; width: 36%; height: auto;">
+        <p style="margin-top: -38%;">pink</p>
+        <img src="../assets/Ellipse 11.svg" alt="Ellipse 11" style="margin-bottom: 6%; margin-left: -2%; width: 36%; height: auto;">
+        <p style="margin-top: -38%;">red</p>
+        <img src="../assets/Ellipse 12.svg" alt="Ellipse 12" style="margin-bottom: 6%; margin-left: -2%; width: 36%; height: auto;">
+        <p style=" margin-top: -38%;">purple</p>
+        <img src="../assets/Ellipse 13.svg" alt="Ellipse 13" style="margin-bottom: 6%; margin-left: -2%; width: 36%; height: auto;">
+        <p style=" margin-top: -37%;">green</p>
+        <img src="../assets/Ellipse 14.svg" alt="Ellipse 14" style="margin-bottom: 6%; margin-left: -2%; width: 36%; height: auto;"> 
+        <p style=" margin-top: -34%;">yellow</p>         
+    <h3 style="margin-top: 21%;">QUANTITY OF PLANT SUBSPECIES:</h3>
+        <img src="../assets/Group 9.svg" alt="flower 1" style="margin-top: 52%; height: auto; width: 38%;">
+        <p style=" margin-top: -42%;">>20</p>
+        <img src="../assets/Group 8.svg" alt="flower 2" style="height: auto; width: 38%;">
+        <p style=" margin-top: -42%;">>50</p>
+        <img src="../assets/Group 7.svg" alt="flower 3" style="height: auto; width: 38%;">
+        <p style=" margin-top: -42%;">>150</p>
+        <img src="../assets/Group 6.svg" alt="flower 4" style="height: auto; width: 38%;">
+        <p style=" margin-top: -42%;">>250</p>
+    </div>
+  </div>
+
+  <div class="grid-container">
+    <svg id="flowers"></svg>
+  </div>
+
+  <div id="type-info"> 
+    <h1 id="type-text"></h1>
+  </div>
+  
+  <script>
+    var padding = 25;
+    var svg = d3.select('svg')
+      .append('g')
+      .attr('transform', 'translate(' + [padding, padding] + ')');
+    var flowerSize = 140;
+    var petalPaths = [[
+      'M0,0',
+      'C50,50 50,100 0,100',
+      'C-50,100 -50,50 0,0'
+    ],
+    [
+      'M-35,0',
+      'C-25,25 25,25 35,0',
+      'C50,25 25,75 0,100',
+      'C-25,75 -50,25 -35,0'
+    ],
+    [
+      'M0,0',
+      'C50,40 50,70 20,100',
+      'L0,85',
+      'L-20,100',
+      'C-50,70 -50,40 0,0'
+    ],
+    [
+      'M0,0',
+      'C50,25 50,75 0,100',
+      'C-50,75 -50,25 0,0'
+    ]];
+
+    var numPetalScale = d3.scaleQuantize()
+      .range(_.range(5, 15));
+    var flowerSizeScale = d3.scaleLinear()
+      .range([.003, .03]);
+    var petalScale = d3.scaleOrdinal()
+      .range(_.range(4));
+    var petalColors = d3.scaleOrdinal()
+      .range(['#D2A816', '#CC7B9D', '#38903C', '#A71B1B', '#7854A6']);
+
+    var defs = svg.append("defs");
+    defs.append("filter")
+      .attr("id", "motionFilter")
+      .attr("width", "300%")
+      .attr("x", "-100%")
+      .append("feGaussianBlur")
+      .attr("in", "SourceGraphic")
+      .attr("stdDeviation", "8 8");
+
+    d3.json('./movies.json', function(movies) {
+      movies = _.chain(movies)
+        .map(function(movie) {
+          movie.year = parseInt(movie.Year);
+          movie.genres = movie.Genre.split(', ');
+          movie.rating = parseFloat(movie.imdbRating);
+          movie.votes = parseInt(movie.imdbVotes.replace(',', ''));
+
+          return movie;
+        }).sortBy(function(movie) {
+          return -movie.year;
+        }).value();
+      
+      var minVotes = d3.min(movies, function(d) {return d.votes});
+      var maxVotes = d3.max(movies, function(d) {return d.votes});
+      numPetalScale.domain([minVotes, maxVotes]);
+      var topGenres = _.chain(movies)
+        .map('genres').flatten()
+        .countBy().toPairs()
+        .sortBy(1).map(0)
+        .takeRight(4)
+        .value();
+
+      var flowers = svg.selectAll('g.flower')
+        .data(_.values(movies)).enter().append('g')
+        .classed('flower', true)
+        .attr('transform', function(d, i) {
+          var scale = flowerSizeScale(d.rating);
+          var row = Math.floor(i / 5);
+          var col = i % 5;
+          var x = col * (flowerSize + 0.4 * flowerSize) + (flowerSize * 0.2);
+          var y = row * (flowerSize + 0.4 * flowerSize) + (flowerSize * 0.2);
+          return 'translate(' + x + ',' + y + ')scale(' + scale + ')';
+        });
+
+      flowers.selectAll('circle')
+        .data(function(d) {
+          var cy = d.genres.length === 1 ? 0 : -flowerSize / 5;
+          return _.map(d.genres, function(genre, i) {
+            genre = _.includes(topGenres, genre) ? genre : 'Other';
+            return {
+              cy: cy,
+              scale: flowerSizeScale(d.rating),
+              angle: (360 / d.genres.length) * i,
+              fill: petalColors(genre)
+            }
+          });
+        }).enter().append('circle')
+        .attr('cy', function(d) {return d.cy})
+        .attr('r', flowerSize / 2)
+        .attr('fill', function(d) {return d.fill})
+        .attr('transform', function(d) {
+          var x = flowerSize / 2 / d.scale;
+          var y = flowerSize / 2 / d.scale;
+          return 'translate(' + [x, y] + ')rotate(' + d.angle + ')';
+        }).style("filter", "url(#motionFilter)");
+
+      flowers.selectAll('path')
+        .data(function(d) {
+          var numPetals = 5;
+          if (d.votes > 20 && d.votes < 50) {
+              numPetals = 6;
+          } else if (d.votes >= 50 && d.votes < 150) {
+              numPetals = 7;
+          } else if (d.votes >= 150 && d.votes < 250) {
+              numPetals = 8;
+          }
+          var path = petalPaths[petalScale(d.Rated)];
+          return _.times(numPetals, function(i) {
+            return {
+              scale: flowerSizeScale(d.rating),
+              angle: (360 / numPetals) * i,
+              path: path
+            }
+          });
+        }).enter().append('path')
+        .attr('stroke', '#323232')
+        .attr('stroke-width', function(d) {
+          return 3 / d.scale;
+        }).attr('fill', 'none')
+        .attr('d', function(d) {return d.path})
+        .attr('transform', function(d) {
+          var cx = flowerSize / 2 / d.scale;
+          var cy = flowerSize / 2 / d.scale;
+          return 'translate(' + [cx, cy] + ')rotate(' + [d.angle] + ')';
+        });
+
+      d3.selectAll('g.flower')
+        .on('mouseover', function(d) {
+          var type = d.Type;
+          d3.select('#type-text').text(type);
+          d3.select('#type-info, #type-text').style('display', 'block');
+        })
+        .on('mouseout', function() {
+          d3.select('#type-info, #type-text').style('display', 'none');
+        });
+
+    });
+
+    function filterMoviesByGenre(genre) {
+      return _.filter(movies, function(movie) {
+        return movie.genres.includes(genre);
+      });
+    }
+
+    function createFlowers(genre) {
+      var filteredMovies = filterMoviesByGenre(genre);
+      // Update visualization with filtered movies
+    }
+
+    document.getElementById('spring').addEventListener('click', function() {
+  var genre = 'Other';
+  createFlowers(genre);
+});
+    
+  </script>
+</body>
+</html>
