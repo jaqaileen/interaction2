@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap');
-
+@font-face {
+  font-family: 'Bujilrya';
+  src: url('/assets/fonts/Bujilrya.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   margin: 0;
   padding: 0;
