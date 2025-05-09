@@ -6,6 +6,13 @@
             -webkit-box-sizing: border-box;
         }
 
+@font-face {
+  font-family: 'Bujilrya';
+  src: url('/assets/fonts/Bujilrya.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
         section {
             height: 100vh;
             background-color: #232323;
